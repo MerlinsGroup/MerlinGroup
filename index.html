@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merlin's Data - Complete Business Solutions</title>
+    <title>Merlin's Data - Digital Transformation for Growing Businesses</title>
     <style>
         * {
             margin: 0;
@@ -16,10 +16,11 @@
             line-height: 1.6;
             color: #2c3e50;
             background-color: #ffffff;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -27,109 +28,104 @@
         /* Header */
         header {
             background: #ffffff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid #e5e7eb;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
-            height: 72px;
+            padding: 20px 0;
+            height: 80px;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #667eea;
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
             text-decoration: none;
             letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #667eea;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 32px;
+            gap: 40px;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #374151;
-            font-weight: 500;
+            color: #2c3e50;
+            font-weight: 400;
             font-size: 16px;
             transition: color 0.2s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
             color: #667eea;
         }
 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: #667eea;
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-nav:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+        }
+
+        .cta-nav::after {
+            display: none;
+        }
+
         .mobile-menu-toggle {
             display: none;
             background: none;
             border: none;
-            color: #374151;
+            color: #2c3e50;
             font-size: 24px;
             cursor: pointer;
-        }
-
-        /* Services Dropdown */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #ffffff;
-            min-width: 280px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            z-index: 1001;
-            border-radius: 8px;
-            padding: 16px 0;
-            margin-top: 8px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: #374151 !important;
-            padding: 12px 20px;
-            text-decoration: none;
-            display: block;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .dropdown-content a:hover {
-            background: #f9fafb;
-            color: #667eea !important;
-            border-left-color: #667eea;
-        }
-
-        .dropdown-icon {
-            margin-right: 12px;
-            font-size: 16px;
         }
 
         /* Hero Slideshow Section */
         .hero {
             position: relative;
-            height: 100vh;
+            height: 80vh;
             min-height: 600px;
-            margin-top: 72px;
+            margin-top: 80px;
             overflow: hidden;
+            background: #f8f9fa;
         }
 
         .slideshow-container {
@@ -139,212 +135,89 @@
         }
 
         .slide {
-            display: none;
             position: absolute;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
+            opacity: 0;
             transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
         }
 
         .slide.active {
-            display: block;
-        }
-
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
-            z-index: 1;
-        }
-
-        .slide-1 {
-            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-        }
-
-        .slide-2 {
-            background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-        }
-
-        .slide-3 {
-            background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            opacity: 1;
         }
 
         .slide-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 24px;
+            width: 100%;
+            padding: 80px 0;
         }
 
-        .slide-content h1 {
-            font-size: 56px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.1;
-            letter-spacing: -1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
 
-        .slide-content .hero-subtitle {
-            font-size: 24px;
-            margin-bottom: 24px;
+        .hero-text h1 {
+            font-size: 52px;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            opacity: 0.95;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #2c3e50;
         }
 
-        .slide-content .hero-description {
+        .hero-text h1 span {
+            color: #667eea;
+        }
+
+        .hero-text p {
             font-size: 20px;
-            margin-bottom: 40px;
+            color: #666;
+            margin-bottom: 32px;
             line-height: 1.6;
-            opacity: 0.9;
         }
 
         .hero-buttons {
             display: flex;
             gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .cta-button {
-            display: inline-block;
+        .btn-primary {
+            background: #667eea;
+            color: white;
             padding: 16px 32px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .cta-button.primary {
-            background: #ffffff;
-            color: #667eea;
-        }
-
-        .cta-button.primary:hover {
-            background: #f8fafc;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .cta-button.secondary {
-            background: transparent;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-        }
-
-        .cta-button.secondary:hover {
-            background: #ffffff;
-            color: #667eea;
-            transform: translateY(-2px);
-        }
-
-        /* Slideshow Navigation Dots */
-        .slideshow-nav {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 3;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-dot.active {
-            background: #ffffff;
-            transform: scale(1.2);
-        }
-
-        .nav-dot:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: #ffffff;
-            padding: 80px 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 48px;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 32px 24px;
-            border-radius: 12px;
-            background: #f8fafc;
-            transition: transform 0.2s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-4px);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 8px;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 16px;
-            color: #6b7280;
+            border-radius: 4px;
             font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         /* Video Section */
         .video-section {
-            padding: 100px 0;
-            background: #f8fafc;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .section-title {
-            font-size: 48px;
-            color: #1f2937;
-            margin-bottom: 16px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .section-subtitle {
-            font-size: 20px;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
+            padding: 80px 0;
+            background: #f8f9fa;
         }
 
         .video-wrapper {
@@ -352,7 +225,7 @@
             margin: 0 auto;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             background: #000;
         }
 
@@ -364,297 +237,387 @@
             display: block;
         }
 
-        /* Services Section */
-        .services-section {
-            padding: 100px 0;
-            background: #ffffff;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-
-        .service-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
+        .hero-visual {
             position: relative;
+            height: 500px;
         }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: #667eea;
-        }
-
-        .service-image {
+        .hero-visual img {
             width: 100%;
-            height: 240px;
+            height: 100%;
             object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .service-content {
+        /* Slide specific backgrounds */
+        .slide-1 {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .slide-2 {
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+        }
+
+        .slide-3 {
+            background: linear-gradient(135deg, #eef2f3 0%, #e6e9f0 100%);
+        }
+
+        /* Slideshow Navigation */
+        .slideshow-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 3;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #667eea;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* Trust Indicators */
+        .trust-bar {
+            background: #f8f9fa;
+            padding: 40px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .trust-number {
+            font-size: 36px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .trust-label {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* What We Do Section */
+        .what-we-do {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 20px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-overview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .service-overview-card {
+            background: #f8f9fa;
             padding: 32px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .service-overview-card:hover {
+            background: #ffffff;
+            border-color: #667eea;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         }
 
         .service-icon {
             width: 64px;
             height: 64px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
+            background: #667eea;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            transition: all 0.3s ease;
             color: white;
-            margin-bottom: 20px;
-            margin-top: -44px;
-            position: relative;
-            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
         }
 
-        .service-card h3 {
+        .service-overview-card:hover .service-icon {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .service-overview-card h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .service-overview-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 48px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .solution-icon {
+            width: 48px;
+            height: 48px;
+            background: #667eea;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-size: 24px;
-            color: #1f2937;
+            margin-bottom: 24px;
+        }
+
+        .solution-card h3 {
+            font-size: 28px;
+            color: #2c3e50;
             margin-bottom: 16px;
             font-weight: 600;
         }
 
-        .service-card p {
-            color: #6b7280;
+        .solution-card p {
+            color: #666;
             margin-bottom: 24px;
             line-height: 1.6;
-            font-size: 16px;
         }
 
-        .learn-more {
+        .solution-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .solution-features li {
+            padding: 8px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .solution-features li::before {
+            content: '✓';
             color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s ease;
-            font-size: 16px;
+            font-weight: bold;
         }
 
-        .learn-more:hover {
-            color: #5a67d8;
+        /* Case Studies Section */
+        .case-studies {
+            padding: 80px 0;
+            background: #ffffff;
         }
 
-        /* Three Column Services */
-        .services-three-col {
+        .case-studies-carousel {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
 
-        /* Company Showcase Section */
-        .company-showcase {
-            padding: 100px 0;
-            background: #f8fafc;
+        .case-study-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .showcase-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            margin-bottom: 80px;
+        .case-study-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         }
 
-        .showcase-content h2 {
-            font-size: 36px;
-            color: #1f2937;
-            margin-bottom: 24px;
-            font-weight: 700;
-        }
-
-        .showcase-content p {
-            color: #6b7280;
-            margin-bottom: 24px;
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .showcase-image {
+        .case-study-image {
             width: 100%;
-            height: 400px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        /* Features Section */
-        .features-section {
-            padding: 100px 0;
-            background: #ffffff;
+        .case-study-content {
+            padding: 32px;
         }
 
-        .features-three-col {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-        }
-
-        .feature-box {
-            background: #f8fafc;
-            padding: 40px 32px;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #e5e7eb;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 32px rgba(0,0,0,0.1);
-            border-color: #667eea;
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: #667eea;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .feature-box:hover .feature-icon {
-            background: #5a67d8;
-            transform: translateY(-4px);
-        }
-
-        .feature-box h3 {
-            font-size: 20px;
-            color: #1f2937;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .feature-box p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 100px 0;
-            background: #f8fafc;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-        }
-
-        .testimonial-card {
-            background: #ffffff;
-            padding: 40px 32px;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-            border: 1px solid #e5e7eb;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 32px rgba(0,0,0,0.1);
-        }
-
-        .testimonial-card:nth-child(1) {
-            border-top: 4px solid #ef4444;
-        }
-
-        .testimonial-card:nth-child(2) {
-            border-top: 4px solid #f59e0b;
-        }
-
-        .testimonial-card:nth-child(3) {
-            border-top: 4px solid #667eea;
-        }
-
-        .testimonial-content {
-            color: #6b7280;
-            margin-bottom: 32px;
-            font-style: italic;
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        .author-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            display: block;
-            border: 3px solid #f3f4f6;
-        }
-
-        .author-info h4 {
-            color: #1f2937;
-            margin-bottom: 4px;
-            font-weight: 600;
-            font-size: 16px;
-        }
-
-        .author-info p {
-            color: #9ca3af;
+        .case-study-tag {
+            display: inline-block;
+            background: #e9ecef;
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 4px;
             font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 16px;
         }
 
-        /* Contact Section */
-        .contact-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .case-study-card h3 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .case-study-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .case-study-results {
+            display: flex;
+            gap: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .result-metric {
+            flex: 1;
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
             color: white;
             text-align: center;
         }
 
-        .contact-section h2 {
-            font-size: 48px;
-            margin-bottom: 24px;
-            font-weight: 700;
+        .cta-content h2 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            font-weight: 600;
         }
 
-        .contact-section p {
+        .cta-content p {
             font-size: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             opacity: 0.9;
         }
 
-        .contact-button {
-            display: inline-block;
-            background: #ffffff;
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn-white {
+            background: white;
             color: #667eea;
             padding: 16px 32px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
+            border-radius: 4px;
+            font-weight: 500;
             font-size: 16px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .contact-button:hover {
-            background: #f8fafc;
+        .btn-white:hover {
+            background: #f8f9fa;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid white;
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            background: #1f2937;
+            background: #2c3e50;
             color: white;
             padding: 60px 0 30px;
         }
@@ -668,19 +631,17 @@
 
         .footer-brand h3 {
             font-size: 24px;
-            color: #667eea;
             margin-bottom: 16px;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         .footer-brand p {
-            color: #9ca3af;
+            color: #999;
             line-height: 1.6;
             margin-bottom: 24px;
         }
 
         .footer-links h4 {
-            color: #f3f4f6;
             margin-bottom: 16px;
             font-weight: 600;
             font-size: 16px;
@@ -691,9 +652,9 @@
         }
 
         .footer-links a {
-            color: #9ca3af;
+            color: #999;
             text-decoration: none;
-            padding: 4px 0;
+            padding: 6px 0;
             display: block;
             transition: color 0.2s ease;
             font-size: 14px;
@@ -706,102 +667,57 @@
         .footer-bottom {
             text-align: center;
             padding-top: 32px;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
+            border-top: 1px solid #495057;
+            color: #999;
             font-size: 14px;
-        }
-
-        /* Floating Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
-            z-index: 1001;
-            text-align: center;
-            min-width: 200px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-widget:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
-        }
-
-        .chat-widget h4 {
-            margin-bottom: 12px;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .chat-widget p {
-            margin-bottom: 16px;
-            opacity: 0.9;
-            font-size: 14px;
-        }
-
-        .schedule-btn {
-            display: inline-block;
-            background: #ffffff;
-            color: #667eea;
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s ease;
-        }
-
-        .schedule-btn:hover {
-            background: #f8fafc;
-            transform: translateY(-1px);
         }
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .services-grid,
-            .showcase-grid {
+            .hero-grid {
                 grid-template-columns: 1fr;
                 gap: 48px;
+                text-align: center;
             }
 
-            .services-three-col,
-            .features-three-col,
-            .testimonials-grid {
+            .hero-visual {
+                height: 400px;
+            }
+
+            .services-overview {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .solutions-grid {
+                grid-template-columns: 1fr;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 32px;
+            .case-studies-carousel {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-                    @media (max-width: 768px) {
+        @media (max-width: 768px) {
             .mobile-menu-toggle {
                 display: block;
             }
 
             .nav-links {
                 position: fixed;
-                top: 72px;
+                top: 80px;
                 left: 0;
                 right: 0;
-                background: #ffffff;
+                background: white;
                 flex-direction: column;
                 padding: 24px;
                 gap: 16px;
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
-                box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
                 border-bottom: 1px solid #e5e7eb;
             }
 
@@ -809,111 +725,55 @@
                 transform: translateX(0);
             }
 
-            .dropdown-content {
-                position: static;
-                display: block;
-                box-shadow: none;
-                background: #f9fafb;
-                margin: 8px 0;
-                border-radius: 8px;
-                border: 1px solid #e5e7eb;
-            }
-
-            .dropdown-content a {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-
             .hero {
-                height: 80vh;
+                height: auto;
                 min-height: 500px;
             }
 
-            .slide-content h1 {
+            .hero-text h1 {
                 font-size: 36px;
             }
 
-            .slide-content .hero-subtitle {
+            .hero-text p {
                 font-size: 18px;
-            }
-
-            .slide-content .hero-description {
-                font-size: 16px;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
-            }
-
-            .cta-button {
                 width: 100%;
-                max-width: 280px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
                 text-align: center;
+                justify-content: center;
             }
 
-            .section-title {
-                font-size: 36px;
-            }
-
-            .section-subtitle {
-                font-size: 18px;
-            }
-
-            .services-three-col,
-            .features-three-col,
-            .testimonials-grid,
-            .stats-grid {
+            .services-overview {
                 grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 24px;
+                gap: 32px;
                 text-align: center;
             }
 
-            .chat-widget {
-                right: 16px;
-                bottom: 16px;
-                min-width: 180px;
-                padding: 16px;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .brand-video {
-                min-height: 250px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            .hero {
-                height: 70vh;
-                min-height: 450px;
-            }
-
-            .slide-content h1 {
-                font-size: 28px;
-            }
-
-            .slide-content .hero-subtitle {
-                font-size: 16px;
-            }
-
-            .slide-content .hero-description {
-                font-size: 14px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .chat-widget {
-                min-width: 160px;
-                padding: 12px;
+            .btn-white,
+            .btn-outline-white {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -923,74 +783,81 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">Merlin's Data</a>
+                <a href="index.html" class="logo">Merlin's <span>Data</span></a>
                 <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="services.html">Services ▾</a>
-                        <div class="dropdown-content">
-                            <a href="services.html#marketing"><span class="dropdown-icon">📈</span>Marketing Excellence</a>
-                            <a href="services.html#webdev"><span class="dropdown-icon">💻</span>Web Development</a>
-                            <a href="services.html#database"><span class="dropdown-icon">🗄️</span>Database Solutions</a>
-                            <a href="services.html#ai"><span class="dropdown-icon">🤖</span>AI Innovation</a>
-                        </div>
-                    </li>
-                    <li><a href="packages.html">Packages</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="calendar.html">Contact Us</a></li>
+                    <li><a href="#what-we-do">What We Do</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="calendar.html" class="cta-nav">Get Started</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Hero Slideshow Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="slideshow-container">
-            <!-- Slide 1 - Data Analytics -->
+            <!-- Slide 1 - Main Value Proposition -->
             <div class="slide slide-1 active">
-                <div class="slide-content">
-                    <h1>Transform Your Data Into Strategic Advantage</h1>
-                    <p class="hero-subtitle">Advanced Analytics • Business Intelligence • Data Solutions</p>
-                    <p class="hero-description">
-                        Unlock the power of your data with professional analytics solutions that drive 
-                        strategic advantage and measurable business results across your organization.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="calendar.html" class="cta-button primary">Contact Us</a>
-                        <a href="services.html#database" class="cta-button secondary">Learn More</a>
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="hero-grid">
+                            <div class="hero-text">
+                                <h1>Transform Your <span>Small Business</span> with Enterprise-Grade Solutions</h1>
+                                <p>Get the same powerful data analytics, marketing automation, and AI tools that Fortune 500 companies use - tailored and priced for growing businesses like yours.</p>
+                                <div class="hero-buttons">
+                                    <a href="calendar.html" class="btn-primary">Start Your Transformation</a>
+                                    <a href="#what-we-do" class="btn-secondary">See How It Works →</a>
+                                </div>
+                            </div>
+                            <div class="hero-visual">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Data Analytics Dashboard">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 2 - Marketing Excellence -->
+            <!-- Slide 2 - Marketing Focus -->
             <div class="slide slide-2">
-                <div class="slide-content">
-                    <h1>Dominate Your Market With Elite Marketing</h1>
-                    <p class="hero-subtitle">Digital Marketing • Performance Advertising • Brand Development</p>
-                    <p class="hero-description">
-                        Drive explosive growth with data-driven marketing strategies, cutting-edge campaigns, 
-                        and ROI-focused solutions that deliver real results and measurable ROI.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="calendar.html" class="cta-button primary">Contact Us</a>
-                        <a href="services.html#marketing" class="cta-button secondary">Learn More</a>
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="hero-grid">
+                            <div class="hero-text">
+                                <h1>Marketing That <span>Delivers Results</span>, Not Empty Promises</h1>
+                                <p>Stop wasting money on marketing that doesn't work. Our data-driven approach has helped SMBs increase revenue by an average of 200% in just 6 months.</p>
+                                <div class="hero-buttons">
+                                    <a href="calendar.html" class="btn-primary">Get Your Free Analysis</a>
+                                    <a href="#case-studies" class="btn-secondary">View Success Stories →</a>
+                                </div>
+                            </div>
+                            <div class="hero-visual">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Marketing Analytics">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 3 - Technology Solutions -->
+            <!-- Slide 3 - Technology Focus -->
             <div class="slide slide-3">
-                <div class="slide-content">
-                    <h1>Build The Future With Cutting-Edge Technology</h1>
-                    <p class="hero-subtitle">Web Development • AI Solutions • Cloud Infrastructure</p>
-                    <p class="hero-description">
-                        Create stunning digital experiences and intelligent automation systems that 
-                        transform how you do business and serve your customers in the digital age.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="calendar.html" class="cta-button primary">Contact Us</a>
-                        <a href="services.html#webdev" class="cta-button secondary">Learn More</a>
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="hero-grid">
+                            <div class="hero-text">
+                                <h1>Your <span>Technology Partner</span> for Sustainable Growth</h1>
+                                <p>From stunning websites to AI-powered automation, we build the digital infrastructure that helps small businesses compete with industry giants.</p>
+                                <div class="hero-buttons">
+                                    <a href="calendar.html" class="btn-primary">Schedule Consultation</a>
+                                    <a href="#solutions" class="btn-secondary">Explore Solutions →</a>
+                                </div>
+                            </div>
+                            <div class="hero-visual">
+                                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Technology Solutions">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1004,25 +871,25 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- Trust Indicators -->
+    <section class="trust-bar">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Projects Delivered</div>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-number">250+</div>
+                    <div class="trust-label">SMBs Transformed</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Expert Team</div>
+                <div class="trust-item">
+                    <div class="trust-number">200%</div>
+                    <div class="trust-label">Average Revenue Growth</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Support Available</div>
+                <div class="trust-item">
+                    <div class="trust-number">4.9/5</div>
+                    <div class="trust-label">Client Satisfaction</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Client Satisfaction</div>
+                <div class="trust-item">
+                    <div class="trust-number">24/7</div>
+                    <div class="trust-label">Support Available</div>
                 </div>
             </div>
         </div>
@@ -1032,10 +899,8 @@
     <section class="video-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">See Our Innovation In Action</h2>
-                <p class="section-subtitle">
-                    Watch how we transform businesses with cutting-edge solutions
-                </p>
+                <h2>See Our Innovation In Action</h2>
+                <p>Watch how we transform businesses with cutting-edge solutions</p>
             </div>
             <div class="video-wrapper">
                 <video autoplay muted loop playsinline class="brand-video">
@@ -1046,236 +911,186 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services-section">
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="what-we-do">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Premium Services</h2>
-                <p class="section-subtitle">
-                    Comprehensive solutions designed to accelerate your growth and transform your operations
-                </p>
+                <h2>Complete Business Solutions Under One Roof</h2>
+                <p>Everything your small business needs to compete in today's digital economy - from marketing to technology infrastructure.</p>
             </div>
             
-            <!-- First Row - 2 Services -->
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marketing Excellence" class="service-image">
-                    <div class="service-content">
-                        <div class="service-icon">📈</div>
-                        <h3>Marketing Excellence</h3>
-                        <p>Dominate your market with data-driven strategies, cutting-edge digital campaigns, and ROI-focused marketing that delivers real results and measurable growth.</p>
-                        <a href="services.html#marketing" class="learn-more">Learn More →</a>
+            <div class="services-overview">
+                <div class="service-overview-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 13h2v8H3zm4-8h2v16H7zm4-2h2v18h-2zm4 4h2v14h-2zm4-4h2v18h-2z" fill="currentColor"/>
+                        </svg>
                     </div>
+                    <h3>Data Analytics</h3>
+                    <p>Turn your business data into actionable insights that drive growth and reduce costs.</p>
                 </div>
                 
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Web Development" class="service-image">
-                    <div class="service-content">
-                        <div class="service-icon">💻</div>
-                        <h3>Web Development</h3>
-                        <p>Build stunning, high-converting websites and e-commerce platforms that provide exceptional user experiences and drive sustained business growth.</p>
-                        <a href="services.html#webdev" class="learn-more">Learn More →</a>
+                <div class="service-overview-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.5 2C8.5 2 5.2 4.1 4.3 5.1L6.5 7.3C7.1 6.7 9.5 5 13.5 5C17.5 5 19.9 6.7 20.5 7.3L22.7 5.1C21.8 4.1 18.5 2 13.5 2ZM13.5 8C10.5 8 8.8 9.1 8.2 9.6L10.4 11.8C10.8 11.5 11.9 11 13.5 11C15.1 11 16.2 11.5 16.6 11.8L18.8 9.6C18.2 9.1 16.5 8 13.5 8ZM19 13L21 15L19 17H15V22H12V17H8L10 15L8 13H12V8H15V13H19Z" fill="currentColor"/>
+                        </svg>
                     </div>
-                </div>
-            </div>
-
-            <!-- Second Row - 2 Services -->
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Database Solutions" class="service-image">
-                    <div class="service-content">
-                        <div class="service-icon">🗄️</div>
-                        <h3>Database Mastery</h3>
-                        <p>Build bulletproof infrastructure with scalable databases, cloud solutions, and enterprise-grade security that powers your operations efficiently.</p>
-                        <a href="services.html#database" class="learn-more">Learn More →</a>
-                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Reach your ideal customers with targeted campaigns that deliver measurable ROI.</p>
                 </div>
                 
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI Solutions" class="service-image">
-                    <div class="service-content">
-                        <div class="service-icon">🤖</div>
-                        <h3>AI Innovation</h3>
-                        <p>Stay ahead with custom AI solutions, intelligent automation, and machine learning that transforms how you do business and serve customers.</p>
-                        <a href="services.html#ai" class="learn-more">Learn More →</a>
+                <div class="service-overview-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V5C22 3.9 21.1 3 20 3ZM20 19H4V8H20V19ZM5 9H19V10H5V9ZM5 12H14V13H5V12ZM5 15H19V16H5V15Z" fill="currentColor"/>
+                        </svg>
                     </div>
-                </div>
-            </div>
-
-            <!-- Third Row - 3 Services -->
-            <div class="services-three-col">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Data Analytics" class="service-image">
-                    <div class="service-content">
-                        <div class="service-icon">📊</div>
-                        <h3>Data Analytics</h3>
-                        <p>Transform raw data into actionable insights with advanced statistical analysis and predictive modeling.</p>
-                        <a href="services.html" class="learn-more">Learn More →</a>
-                    </div>
+                    <h3>Web Development</h3>
+                    <p>Beautiful, fast websites that convert visitors into customers and grow your business.</p>
                 </div>
                 
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cloud Solutions" class="service-image">
-                    <div class="service-content">
-                        <div class="service-icon">☁️</div>
-                        <h3>Cloud Solutions</h3>
-                        <p>Migrate to the cloud with confidence using our enterprise-grade infrastructure and security protocols.</p>
-                        <a href="services.html" class="learn-more">Learn More →</a>
+                <div class="service-overview-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.5 11H19V7C19 5.9 18.1 5 17 5H13V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4C2.9 5 2.01 5.9 2.01 7V10.8H3.5C4.99 10.8 6.2 12.01 6.2 13.5S4.99 16.2 3.5 16.2H2V20C2 21.1 2.9 22 4 22H7.8V20.5C7.8 19.01 9.01 17.8 10.5 17.8S13.2 19.01 13.2 20.5V22H17C18.1 22 19 21.1 19 20V16H20.5C21.88 16 23 14.88 23 13.5S21.88 11 20.5 11Z" fill="currentColor"/>
+                        </svg>
                     </div>
-                </div>
-                
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Intelligence" class="service-image">
-                    <div class="service-content">
-                        <div class="service-icon">🎯</div>
-                        <h3>Business Intelligence</h3>
-                        <p>Strategic BI solutions that provide real-time insights into your business performance and opportunities.</p>
-                        <a href="services.html" class="learn-more">Learn More →</a>
-                    </div>
+                    <h3>AI Automation</h3>
+                    <p>Automate repetitive tasks and unlock new efficiencies with custom AI solutions.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Company Showcase Section -->
-    <section class="company-showcase">
-        <div class="container">
-            <!-- First Showcase -->
-            <div class="showcase-grid">
-                <div class="showcase-content">
-                    <h2>Enterprise-Grade Data Infrastructure</h2>
-                    <p>
-                        We build robust, scalable data infrastructures that power Fortune 500 companies. 
-                        Our team of certified experts delivers enterprise-grade solutions with 99.9% uptime 
-                        and bank-level security protocols.
-                    </p>
-                    <p>
-                        From complex data warehouses to real-time analytics platforms, we handle projects 
-                        of any scale with precision and reliability that industry leaders trust.
-                    </p>
-                </div>
-                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Data Infrastructure" class="showcase-image">
-            </div>
-
-            <!-- Second Showcase -->
-            <div class="showcase-grid">
-                <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Website Development" class="showcase-image">
-                <div class="showcase-content">
-                    <h2>Award-Winning Website Development</h2>
-                    <p>
-                        Our development team creates stunning, high-performance websites that convert visitors 
-                        into customers. We've delivered over 500 successful projects across diverse industries, 
-                        each optimized for speed, security, and user experience.
-                    </p>
-                    <p>
-                        From e-commerce platforms handling millions in revenue to corporate websites representing 
-                        global brands, we build digital experiences that drive measurable business results.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-section">
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Cut Costs, Not Performance</h2>
-                <p class="section-subtitle">
-                    Merlin's Data eliminates unpredictable IT expenses and hidden infrastructure costs, giving your business a clear view of your data stack spending while maximizing performance. Unlike legacy solutions that require expensive optimizations and unpredictable scaling costs, we're built for efficiency, automation, and cost control.
-                </p>
+                <h2>Solutions Designed for Growing Businesses</h2>
+                <p>Choose the perfect package for your business needs and budget</p>
             </div>
             
-            <div class="features-three-col">
-                <div class="feature-box">
-                    <div class="feature-icon">
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="white"/>
-                            <path d="M19 15L20.09 17.26L23 18L20.09 18.74L19 21L17.91 18.74L15 18L17.91 17.26L19 15Z" fill="white"/>
-                            <path d="M5 15L6.09 17.26L9 18L6.09 18.74L5 21L3.91 18.74L1 18L3.91 17.26L5 15Z" fill="white"/>
+                            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM17 12H7V14H17V12ZM17 8H7V10H17V8Z" fill="currentColor"/>
                         </svg>
                     </div>
-                    <h3>Smarter Resource Allocation</h3>
-                    <p>Self-optimizing capabilities reduce manual maintenance, allowing your team to focus on strategic initiatives rather than database administration and system management.</p>
+                    <h3>Startup Accelerator</h3>
+                    <p>Perfect for new businesses ready to establish their digital presence and start growing.</p>
+                    <ul class="solution-features">
+                        <li>Professional website development</li>
+                        <li>Basic SEO and local search optimization</li>
+                        <li>Social media setup and strategy</li>
+                        <li>Google Analytics implementation</li>
+                        <li>Monthly performance reports</li>
+                    </ul>
+                    <a href="packages.html" class="btn-primary">Learn More</a>
                 </div>
-                <div class="feature-box">
-                    <div class="feature-icon">
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L12 4L9 1L3 7V9H5V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V9H21ZM17 20H7V9H17V20Z" fill="white"/>
-                            <circle cx="9" cy="13" r="1" fill="white"/>
-                            <circle cx="15" cy="13" r="1" fill="white"/>
-                            <circle cx="12" cy="16" r="1" fill="white"/>
+                            <path d="M16 11C17.66 11 18.99 9.66 18.99 8S17.66 5 16 5C14.34 5 13 6.34 13 8S14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8S9.66 5 8 5C6.34 5 5 6.34 5 8S6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V19H15V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C16.19 13.89 17 15.02 17 16.5V19H23V16.5C23 14.17 18.33 13 16 13Z" fill="currentColor"/>
                         </svg>
                     </div>
-                    <h3>Deploy Where You're Most Comfortable</h3>
-                    <p>Whether on-premise, in a hosted cloud environment or a hybrid model, you can deploy our solutions based on your company's skillsets and cloud strategy, enabling you to focus on results rather than infrastructure considerations.</p>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="white"/>
-                        </svg>
-                    </div>
-                    <h3>No Surprise Costs</h3>
-                    <p>Transparent, predictable pricing helps keep your IT budget under control, minimizing unexpected licensing fees or performance-related expenses while ensuring scalable growth.</p>
+                    <h3>Growth Engine</h3>
+                    <p>For established SMBs ready to scale with advanced marketing and data solutions.</p>
+                    <ul class="solution-features">
+                        <li>Advanced marketing automation</li>
+                        <li>Custom data analytics dashboard</li>
+                        <li>E-commerce integration</li>
+                        <li>AI-powered customer insights</li>
+                        <li>Dedicated account manager</li>
+                    </ul>
+                    <a href="packages.html" class="btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="case-studies">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Client Success Stories</h2>
-                <p class="section-subtitle">
-                    See how we've transformed businesses across industries with our comprehensive solutions
-                </p>
+                <h2>Real Results for Real Businesses</h2>
+                <p>See how we've helped small and medium businesses transform their operations and accelerate growth</p>
             </div>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <img src="updatelogo.png" alt="Surinder Singh" class="author-image">
-                    <p class="testimonial-content">
-                        "MerlinsData has become our trusted data and marketing partner, completely overhauling our internal processes and digital presence. Their AI-driven solutions boosted our operational efficiency by 300% in just three months."
-                    </p>
-                    <div class="author-info">
-                        <h4>CEO Surinder Singh</h4>
-                        <p>BordoDesign</p>
+            <div class="case-studies-carousel">
+                <div class="case-study-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="BordoDesign Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <span class="case-study-tag">E-commerce</span>
+                        <h3>BordoDesign's Digital Transformation</h3>
+                        <p>How we helped a local furniture retailer expand nationally with data-driven e-commerce solutions.</p>
+                        <div class="case-study-results">
+                            <div class="result-metric">
+                                <div class="result-value">300%</div>
+                                <div class="result-label">Revenue Growth</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">50K+</div>
+                                <div class="result-label">New Customers</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <img src="icebank.png" alt="Nicko Jayden" class="author-image">
-                    <p class="testimonial-content">
-                        "MerlinsData overhauled our entire website and digital strategy. They're our go-to data and marketing partner for all major initiatives."
-                    </p>
-                    <div class="author-info">
-                        <h4>Founder and CEO Nicko Jayden</h4>
-                        <p>icebankjewellers</p>
+                <div class="case-study-card">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ice Bank Jewellers Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <span class="case-study-tag">Retail</span>
+                        <h3>Ice Bank Jewellers Goes Digital</h3>
+                        <p>Transforming a traditional jeweler into an omnichannel retail powerhouse with AI-powered inventory management.</p>
+                        <div class="case-study-results">
+                            <div class="result-metric">
+                                <div class="result-value">2x</div>
+                                <div class="result-label">Online Sales</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">45%</div>
+                                <div class="result-label">Cost Reduction</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <img src="smartbuy.png" alt="Taran" class="author-image">
-                    <p class="testimonial-content">
-                        "Their marketing strategies doubled our revenue in 6 months. The ROI has been incredible, highly recommend their comprehensive approach!"
-                    </p>
-                    <div class="author-info">
-                        <h4>CEO Taran</h4>
-                        <p>Smart Buy Property</p>
+                <div class="case-study-card">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart Buy Property Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <span class="case-study-tag">Real Estate</span>
+                        <h3>Smart Buy Property's Market Domination</h3>
+                        <p>How targeted digital marketing helped a boutique real estate firm compete with national chains.</p>
+                        <div class="case-study-results">
+                            <div class="result-metric">
+                                <div class="result-value">150%</div>
+                                <div class="result-label">Lead Generation</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">$2M+</div>
+                                <div class="result-label">New Revenue</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <h2>Ready to Transform Your Business?</h2>
-            <p>Join hundreds of companies that have revolutionized their operations with our elite solutions</p>
-            <a href="calendar.html" class="contact-button">Contact Us</a>
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Join hundreds of SMBs that have accelerated their growth with Merlin's Data</p>
+                <div class="cta-buttons">
+                    <a href="calendar.html" class="btn-white">Schedule Free Consultation</a>
+                    <a href="packages.html" class="btn-outline-white">View Pricing</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1285,49 +1100,41 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Merlin's Data</h3>
-                    <p>Transforming businesses with cutting-edge marketing, robust database solutions, and innovative AI technologies. Your success is our mission.</p>
+                    <p>Empowering small and medium businesses with enterprise-grade solutions. Your success is our mission.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4>Solutions</h4>
                     <ul>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="packages.html">Pricing Plans</a></li>
-                        <li><a href="calendar.html">Book Consultation</a></li>
+                        <li><a href="services.html#marketing">Digital Marketing</a></li>
+                        <li><a href="services.html#webdev">Web Development</a></li>
+                        <li><a href="services.html#database">Data Analytics</a></li>
+                        <li><a href="services.html#ai">AI Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Learn Data Analytics</h4>
+                    <h4>Get Started</h4>
                     <ul>
-                        <li><a href="https://www.kaggle.com/learn" target="_blank">Kaggle Learn</a></li>
-                        <li><a href="https://www.coursera.org/courses?query=data%20science" target="_blank">Coursera Data Science</a></li>
-                        <li><a href="https://www.edx.org/course/introduction-to-data-science" target="_blank">edX Data Science</a></li>
-                        <li><a href="https://www.datacamp.com/" target="_blank">DataCamp</a></li>
-                        <li><a href="https://www.youtube.com/c/3Blue1Brown" target="_blank">3Blue1Brown</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Get in Touch</h4>
-                    <ul>
-                        <li><a href="mailto:contact@merlinsdata.com">contact@merlinsdata.com</a></li>
-                        <li><a href="#" target="_blank">LinkedIn</a></li>
-                        <li><a href="#" target="_blank">Twitter</a></li>
-                        <li><a href="#" target="_blank">GitHub</a></li>
+                        <li><a href="calendar.html">Book Consultation</a></li>
+                        <li><a href="packages.html">View Packages</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Merlin's Data. All rights reserved. | Transforming Data Into Strategic Advantage</p>
+                <p>&copy; 2025 Merlin's Data. All rights reserved. | Transforming Small Businesses Into Market Leaders</p>
             </div>
         </div>
     </footer>
-
-    <!-- Floating Chat Widget -->
-    <div class="chat-widget">
-        <h4>📅 Schedule Appointment</h4>
-        <p>Ready to discuss your project?</p>
-        <a href="https://calendly.com/merlinsdata" target="_blank" class="schedule-btn">Book Now</a>
-    </div>
 
     <script>
         // Slideshow functionality
@@ -1352,8 +1159,8 @@
             showSlide(slideIndex + 1);
         }
 
-        // Auto-advance slideshow every 5 seconds
-        setInterval(nextSlide, 5000);
+        // Auto-advance slideshow every 6 seconds
+        setInterval(nextSlide, 6000);
 
         // Mobile menu toggle
         function toggleMobileMenu() {
@@ -1371,30 +1178,23 @@
             }
         });
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
                 }
             });
         });
 
-        // Add animations on scroll
+        // Add scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1410,7 +1210,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.service-card, .feature-box, .testimonial-card, .stat-item').forEach(el => {
+        document.querySelectorAll('.service-overview-card, .solution-card, .case-study-card, .trust-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
