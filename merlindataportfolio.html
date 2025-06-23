@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pitch Deck Presentation</title>
+    <title>Portfolio Presentation</title>
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:image" content="merlinsdata.png">
-    <meta property="og:title" content="Pitch Deck Presentation">
-    <meta property="og:description" content="View our comprehensive pitch deck presentation with detailed business insights and opportunities.">
+    <meta property="og:title" content="Portfolio Presentation">
+    <meta property="og:description" content="Explore our comprehensive portfolio showcasing innovative projects, achievements, and professional capabilities.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     
     <!-- Additional Meta Tags -->
-    <meta name="description" content="Interactive pitch deck presentation viewer">
-    <meta name="author" content="Your Company">
+    <meta name="description" content="Interactive portfolio presentation viewer">
+    <meta name="author" content="Your Portfolio">
     
     <style>
         * {
@@ -53,10 +53,11 @@
         
         .pdf-container {
             flex: 1;
-            padding: 2rem;
+            padding: 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: calc(100vh - 120px);
         }
         
         .pdf-wrapper {
@@ -65,8 +66,9 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             width: 100%;
-            max-width: 1200px;
-            height: 80vh;
+            max-width: 1400px;
+            height: 90vh;
+            min-height: 600px;
             position: relative;
         }
         
@@ -132,11 +134,14 @@
         
         @media (max-width: 768px) {
             .pdf-container {
-                padding: 1rem;
+                padding: 0.5rem;
+                min-height: calc(100vh - 100px);
             }
             
             .pdf-wrapper {
-                height: 70vh;
+                height: 85vh;
+                min-height: 500px;
+                border-radius: 8px;
             }
             
             .header h1 {
@@ -146,13 +151,60 @@
             .header {
                 padding: 1rem;
             }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .pdf-container {
+                padding: 0.25rem;
+            }
+            
+            .pdf-wrapper {
+                height: 80vh;
+                min-height: 400px;
+                border-radius: 6px;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header p {
+                font-size: 0.8rem;
+            }
+            
+            .controls {
+                top: 0.5rem;
+                right: 0.5rem;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            
+            .control-btn {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .pdf-wrapper {
+                height: 92vh;
+                max-width: 1600px;
+            }
+            
+            .pdf-container {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Pitch Deck Presentation</h1>
-        <p>Comprehensive Business Overview & Opportunities</p>
+        <h1>Portfolio Presentation</h1>
+        <p>Showcasing Innovation, Achievements & Professional Excellence</p>
     </div>
     
     <div class="pdf-container">
@@ -170,8 +222,8 @@
             
             <div class="fallback-message" id="fallbackMessage">
                 <h3>PDF Viewer Not Available</h3>
-                <p>Your browser doesn't support embedded PDFs, but you can still view the presentation.</p>
-                <a href="Pitch Deck (1).pdf" class="download-btn" target="_blank">Open PDF in New Tab</a>
+                <p>Your browser doesn't support embedded PDFs, but you can still view the portfolio.</p>
+                <a href="Pitch Deck (1).pdf" class="download-btn" target="_blank">Open Portfolio in New Tab</a>
             </div>
         </div>
     </div>
