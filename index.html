@@ -12,52 +12,57 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #2c3e50;
             background-color: #ffffff;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Header */
         header {
             background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 16px 0;
+            height: 72px;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #2c3e50;
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 32px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #374151;
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 16px;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
@@ -68,18 +73,61 @@
             display: none;
             background: none;
             border: none;
-            color: #333;
-            font-size: 1.5rem;
+            color: #374151;
+            font-size: 24px;
             cursor: pointer;
+        }
+
+        /* Services Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            min-width: 280px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            z-index: 1001;
+            border-radius: 8px;
+            padding: 16px 0;
+            margin-top: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #374151 !important;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-content a:hover {
+            background: #f9fafb;
+            color: #667eea !important;
+            border-left-color: #667eea;
+        }
+
+        .dropdown-icon {
+            margin-right: 12px;
+            font-size: 16px;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-            margin-top: 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 120px 0 80px;
+            margin-top: 72px;
             position: relative;
             overflow: hidden;
         }
@@ -94,218 +142,134 @@
             background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
-            opacity: 0.1;
+            opacity: 0.05;
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 56px;
             font-weight: 700;
-            line-height: 1.2;
+            color: #1f2937;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -1px;
         }
 
         .hero-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            opacity: 0.9;
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            max-width: 700px;
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 40px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.9;
+            line-height: 1.6;
         }
 
         .cta-button {
             display: inline-block;
-            background: #ffffff;
-            color: #667eea;
-            padding: 15px 35px;
+            background: #667eea;
+            color: #ffffff;
+            padding: 16px 32px;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .cta-button:hover {
+            background: #5a67d8;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
         }
 
         /* Stats Section */
         .stats-section {
-            background: #f8f9fa;
+            background: #ffffff;
             padding: 80px 0;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
+            gap: 48px;
             text-align: center;
         }
 
         .stat-item {
-            background: #ffffff;
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            padding: 32px 24px;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: transform 0.2s ease;
         }
 
         .stat-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
 
         .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
+            font-size: 48px;
+            font-weight: 700;
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 1rem;
-            color: #7f8c8d;
+            font-size: 16px;
+            color: #6b7280;
             font-weight: 500;
-        }
-
-        /* Services Section */
-        .services-section {
-            padding: 100px 0;
-            background: #ffffff;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .service-card {
-            background: #ffffff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .service-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .service-content {
-            padding: 30px;
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 20px;
-            margin-top: -50px;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: #7f8c8d;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .learn-more {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .learn-more:hover {
-            color: #764ba2;
-        }
-
-        /* Two Column Services */
-        .services-two-col {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        /* Three Column Services */
-        .services-three-col {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
         }
 
         /* Video Section */
         .video-section {
             padding: 100px 0;
-            background: #f8f9fa;
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            color: #1f2937;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         .video-wrapper {
             max-width: 1000px;
             margin: 0 auto;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             background: #000;
         }
 
@@ -317,160 +281,97 @@
             display: block;
         }
 
-        /* Features Section */
-        .features-section {
+        /* Services Section */
+        .services-section {
             padding: 100px 0;
             background: #ffffff;
-            position: relative;
         }
 
-        .features-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.05;
-            z-index: 1;
-        }
-
-        .features-container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .features-grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-bottom: 60px;
+            gap: 48px;
+            margin-bottom: 48px;
         }
 
-        .features-three-col {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .feature-box {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            position: relative;
         }
 
-        .feature-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #667eea;
         }
 
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: #667eea;
-            border-radius: 50%;
+        .service-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 32px;
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
-            transition: all 0.3s ease;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+            margin-top: -44px;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
         }
 
-        .feature-box:hover .feature-icon {
-            background: #764ba2;
-            box-shadow: 0 12px 35px rgba(118, 75, 162, 0.3);
-            transform: translateY(-3px);
-        }
-
-        .feature-box h3 {
-            font-size: 1.4rem;
-            color: #2c3e50;
-            margin-bottom: 15px;
+        .service-card h3 {
+            font-size: 24px;
+            color: #1f2937;
+            margin-bottom: 16px;
             font-weight: 600;
         }
 
-        .feature-box p {
-            color: #7f8c8d;
+        .service-card p {
+            color: #6b7280;
+            margin-bottom: 24px;
             line-height: 1.6;
+            font-size: 16px;
         }
 
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 100px 0;
-            background: #f8f9fa;
+        .learn-more {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+            font-size: 16px;
         }
 
-        .testimonials-grid {
+        .learn-more:hover {
+            color: #5a67d8;
+        }
+
+        /* Three Column Services */
+        .services-three-col {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .testimonial-card {
-            background: #ffffff;
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .testimonial-card:nth-child(1) {
-            border-top: 4px solid #e74c3c;
-        }
-
-        .testimonial-card:nth-child(2) {
-            border-top: 4px solid #f39c12;
-        }
-
-        .testimonial-card:nth-child(3) {
-            border-top: 4px solid #667eea;
-        }
-
-        .testimonial-content {
-            color: #7f8c8d;
-            margin-bottom: 30px;
-            font-style: italic;
-            line-height: 1.7;
-        }
-
-        .author-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            display: block;
-        }
-
-        .author-info h4 {
-            color: #2c3e50;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .author-info p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
+            gap: 32px;
         }
 
         /* Company Showcase Section */
         .company-showcase {
             padding: 100px 0;
-            background: #ffffff;
+            background: #f8fafc;
         }
 
         .showcase-grid {
@@ -482,16 +383,16 @@
         }
 
         .showcase-content h2 {
-            font-size: 2.2rem;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-weight: 600;
+            font-size: 36px;
+            color: #1f2937;
+            margin-bottom: 24px;
+            font-weight: 700;
         }
 
         .showcase-content p {
-            color: #7f8c8d;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 24px;
+            font-size: 18px;
             line-height: 1.7;
         }
 
@@ -499,8 +400,134 @@
             width: 100%;
             height: 400px;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .features-three-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+
+        .feature-box {
+            background: #f8fafc;
+            padding: 40px 32px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #667eea;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover .feature-icon {
+            background: #5a67d8;
+            transform: translateY(-4px);
+        }
+
+        .feature-box h3 {
+            font-size: 20px;
+            color: #1f2937;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .feature-box p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card:nth-child(1) {
+            border-top: 4px solid #ef4444;
+        }
+
+        .testimonial-card:nth-child(2) {
+            border-top: 4px solid #f59e0b;
+        }
+
+        .testimonial-card:nth-child(3) {
+            border-top: 4px solid #667eea;
+        }
+
+        .testimonial-content {
+            color: #6b7280;
+            margin-bottom: 32px;
+            font-style: italic;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 3px solid #f3f4f6;
+        }
+
+        .author-info h4 {
+            color: #1f2937;
+            margin-bottom: 4px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .author-info p {
+            color: #9ca3af;
+            font-size: 14px;
         }
 
         /* Contact Section */
@@ -512,13 +539,13 @@
         }
 
         .contact-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 600;
+            font-size: 48px;
+            margin-bottom: 24px;
+            font-weight: 700;
         }
 
         .contact-section p {
-            font-size: 1.2rem;
+            font-size: 20px;
             margin-bottom: 40px;
             opacity: 0.9;
         }
@@ -527,38 +554,90 @@
             display: inline-block;
             background: #ffffff;
             color: #667eea;
-            padding: 15px 40px;
+            padding: 16px 32px;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(255,255,255,0.2);
         }
 
         .contact-button:hover {
+            background: #f8fafc;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(255,255,255,0.3);
         }
 
         /* Footer */
         footer {
-            background: #2c3e50;
+            background: #1f2937;
             color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .footer-links h4 {
+            color: #f3f4f6;
+            margin-bottom: 16px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            padding: 4px 0;
+            display: block;
+            transition: color 0.2s ease;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
             text-align: center;
-            padding: 40px 0;
+            padding-top: 32px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 14px;
         }
 
         /* Floating Chat Widget */
         .chat-widget {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 32px;
+            right: 32px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
             z-index: 1001;
             text-align: center;
             min-width: 200px;
@@ -566,46 +645,45 @@
         }
 
         .chat-widget:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
         }
 
         .chat-widget h4 {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-size: 16px;
             font-weight: 600;
         }
 
         .chat-widget p {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             opacity: 0.9;
-            font-size: 0.9rem;
+            font-size: 14px;
         }
 
         .schedule-btn {
             display: inline-block;
             background: #ffffff;
             color: #667eea;
-            padding: 10px 20px;
+            padding: 8px 16px;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-size: 14px;
+            transition: all 0.2s ease;
         }
 
         .schedule-btn:hover {
-            background: #f8f9fa;
+            background: #f8fafc;
             transform: translateY(-1px);
         }
 
         /* Responsive Design */
         @media (max-width: 1024px) {
             .services-grid,
-            .features-grid,
             .showcase-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 48px;
             }
 
             .services-three-col,
@@ -617,6 +695,11 @@
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -626,32 +709,56 @@
 
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 72px;
                 left: 0;
                 right: 0;
                 background: #ffffff;
                 flex-direction: column;
-                padding: 20px;
-                gap: 15px;
+                padding: 24px;
+                gap: 16px;
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+                border-bottom: 1px solid #e5e7eb;
             }
 
             .nav-links.active {
                 transform: translateX(0);
             }
 
+            .dropdown-content {
+                position: static;
+                display: block;
+                box-shadow: none;
+                background: #f9fafb;
+                margin: 8px 0;
+                border-radius: 8px;
+                border: 1px solid #e5e7eb;
+            }
+
+            .dropdown-content a {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 40px;
             }
 
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 20px;
+            }
+
+            .hero-description {
+                font-size: 18px;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 36px;
+            }
+
+            .section-subtitle {
+                font-size: 18px;
             }
 
             .services-three-col,
@@ -661,11 +768,17 @@
                 grid-template-columns: 1fr;
             }
 
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+            }
+
             .chat-widget {
-                right: 15px;
-                bottom: 15px;
+                right: 16px;
+                bottom: 16px;
                 min-width: 180px;
-                padding: 15px;
+                padding: 16px;
             }
 
             .brand-video {
@@ -674,16 +787,28 @@
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
             .hero {
-                padding: 120px 0 60px;
+                padding: 100px 0 60px;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-description {
+                font-size: 16px;
             }
 
             .section-title {
-                font-size: 1.8rem;
+                font-size: 28px;
             }
 
             .chat-widget {
@@ -698,11 +823,19 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Merlin's Data</div>
+                <a href="index.html" class="logo">Merlin's Data</a>
                 <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">Services ▾</a>
+                        <div class="dropdown-content">
+                            <a href="services.html#marketing"><span class="dropdown-icon">📈</span>Marketing Excellence</a>
+                            <a href="services.html#webdev"><span class="dropdown-icon">💻</span>Web Development</a>
+                            <a href="services.html#database"><span class="dropdown-icon">🗄️</span>Database Solutions</a>
+                            <a href="services.html#ai"><span class="dropdown-icon">🤖</span>AI Innovation</a>
+                        </div>
+                    </li>
                     <li><a href="packages.html">Packages</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="calendar.html">Contact Us</a></li>
@@ -786,7 +919,7 @@
                         <div class="service-icon">📈</div>
                         <h3>Marketing Excellence</h3>
                         <p>Dominate your market with data-driven strategies, cutting-edge digital campaigns, and ROI-focused marketing that delivers real results and measurable growth.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
+                        <a href="services.html#marketing" class="learn-more">Learn More →</a>
                     </div>
                 </div>
                 
@@ -796,7 +929,7 @@
                         <div class="service-icon">💻</div>
                         <h3>Web Development</h3>
                         <p>Build stunning, high-converting websites and e-commerce platforms that provide exceptional user experiences and drive sustained business growth.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
+                        <a href="services.html#webdev" class="learn-more">Learn More →</a>
                     </div>
                 </div>
             </div>
@@ -809,7 +942,7 @@
                         <div class="service-icon">🗄️</div>
                         <h3>Database Mastery</h3>
                         <p>Build bulletproof infrastructure with scalable databases, cloud solutions, and enterprise-grade security that powers your operations efficiently.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
+                        <a href="services.html#database" class="learn-more">Learn More →</a>
                     </div>
                 </div>
                 
@@ -819,7 +952,7 @@
                         <div class="service-icon">🤖</div>
                         <h3>AI Innovation</h3>
                         <p>Stay ahead with custom AI solutions, intelligent automation, and machine learning that transforms how you do business and serve customers.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
+                        <a href="services.html#ai" class="learn-more">Learn More →</a>
                     </div>
                 </div>
             </div>
@@ -832,7 +965,7 @@
                         <div class="service-icon">📊</div>
                         <h3>Data Analytics</h3>
                         <p>Transform raw data into actionable insights with advanced statistical analysis and predictive modeling.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
+                        <a href="services.html" class="learn-more">Learn More →</a>
                     </div>
                 </div>
                 
@@ -842,7 +975,7 @@
                         <div class="service-icon">☁️</div>
                         <h3>Cloud Solutions</h3>
                         <p>Migrate to the cloud with confidence using our enterprise-grade infrastructure and security protocols.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
+                        <a href="services.html" class="learn-more">Learn More →</a>
                     </div>
                 </div>
                 
@@ -852,7 +985,7 @@
                         <div class="service-icon">🎯</div>
                         <h3>Business Intelligence</h3>
                         <p>Strategic BI solutions that provide real-time insights into your business performance and opportunities.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
+                        <a href="services.html" class="learn-more">Learn More →</a>
                     </div>
                 </div>
             </div>
@@ -901,48 +1034,45 @@
     <!-- Features Section -->
     <section class="features-section">
         <div class="container">
-            <div class="features-container">
-                <div class="section-header">
-                    <h2 class="section-title">Cut Costs, Not Performance</h2>
-                    <p class="section-subtitle">
-                        Merlin's Data eliminates unpredictable IT expenses and hidden infrastructure costs, giving your business a clear view of your data stack spending while maximizing performance. Unlike legacy solutions that require expensive optimizations and unpredictable scaling costs, we're built for efficiency, automation, and cost control.
-                    </p>
+            <div class="section-header">
+                <h2 class="section-title">Cut Costs, Not Performance</h2>
+                <p class="section-subtitle">
+                    Merlin's Data eliminates unpredictable IT expenses and hidden infrastructure costs, giving your business a clear view of your data stack spending while maximizing performance. Unlike legacy solutions that require expensive optimizations and unpredictable scaling costs, we're built for efficiency, automation, and cost control.
+                </p>
+            </div>
+            
+            <div class="features-three-col">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="white"/>
+                            <path d="M19 15L20.09 17.26L23 18L20.09 18.74L19 21L17.91 18.74L15 18L17.91 17.26L19 15Z" fill="white"/>
+                            <path d="M5 15L6.09 17.26L9 18L6.09 18.74L5 21L3.91 18.74L1 18L3.91 17.26L5 15Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3>Smarter Resource Allocation</h3>
+                    <p>Self-optimizing capabilities reduce manual maintenance, allowing your team to focus on strategic initiatives rather than database administration and system management.</p>
                 </div>
-                
-                <!-- Single Row - 3 Features -->
-                <div class="features-three-col">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="white"/>
-                                <path d="M19 15L20.09 17.26L23 18L20.09 18.74L19 21L17.91 18.74L15 18L17.91 17.26L19 15Z" fill="white"/>
-                                <path d="M5 15L6.09 17.26L9 18L6.09 18.74L5 21L3.91 18.74L1 18L3.91 17.26L5 15Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <h3>Smarter Resource Allocation</h3>
-                        <p>Self-optimizing capabilities reduce manual maintenance, allowing your team to focus on strategic initiatives rather than database administration and system management.</p>
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L12 4L9 1L3 7V9H5V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V9H21ZM17 20H7V9H17V20Z" fill="white"/>
+                            <circle cx="9" cy="13" r="1" fill="white"/>
+                            <circle cx="15" cy="13" r="1" fill="white"/>
+                            <circle cx="12" cy="16" r="1" fill="white"/>
+                        </svg>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L12 4L9 1L3 7V9H5V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V9H21ZM17 20H7V9H17V20Z" fill="white"/>
-                                <circle cx="9" cy="13" r="1" fill="white"/>
-                                <circle cx="15" cy="13" r="1" fill="white"/>
-                                <circle cx="12" cy="16" r="1" fill="white"/>
-                            </svg>
-                        </div>
-                        <h3>Deploy Where You're Most Comfortable</h3>
-                        <p>Whether on-premise, in a hosted cloud environment or a hybrid model, you can deploy our solutions based on your company's skillsets and cloud strategy, enabling you to focus on results rather than infrastructure considerations.</p>
+                    <h3>Deploy Where You're Most Comfortable</h3>
+                    <p>Whether on-premise, in a hosted cloud environment or a hybrid model, you can deploy our solutions based on your company's skillsets and cloud strategy, enabling you to focus on results rather than infrastructure considerations.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="white"/>
+                        </svg>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <h3>No Surprise Costs</h3>
-                        <p>Transparent, predictable pricing helps keep your IT budget under control, minimizing unexpected licensing fees or performance-related expenses while ensuring scalable growth.</p>
-                    </div>
+                    <h3>No Surprise Costs</h3>
+                    <p>Transparent, predictable pricing helps keep your IT budget under control, minimizing unexpected licensing fees or performance-related expenses while ensuring scalable growth.</p>
                 </div>
             </div>
         </div>
@@ -1007,7 +1137,43 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Merlin's Data. All rights reserved. | Transforming Data Into Strategic Advantage</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Merlin's Data</h3>
+                    <p>Transforming businesses with cutting-edge marketing, robust database solutions, and innovative AI technologies. Your success is our mission.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="packages.html">Pricing Plans</a></li>
+                        <li><a href="calendar.html">Book Consultation</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn Data Analytics</h4>
+                    <ul>
+                        <li><a href="https://www.kaggle.com/learn" target="_blank">Kaggle Learn</a></li>
+                        <li><a href="https://www.coursera.org/courses?query=data%20science" target="_blank">Coursera Data Science</a></li>
+                        <li><a href="https://www.edx.org/course/introduction-to-data-science" target="_blank">edX Data Science</a></li>
+                        <li><a href="https://www.datacamp.com/" target="_blank">DataCamp</a></li>
+                        <li><a href="https://www.youtube.com/c/3Blue1Brown" target="_blank">3Blue1Brown</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Get in Touch</h4>
+                    <ul>
+                        <li><a href="mailto:contact@merlinsdata.com">contact@merlinsdata.com</a></li>
+                        <li><a href="#" target="_blank">LinkedIn</a></li>
+                        <li><a href="#" target="_blank">Twitter</a></li>
+                        <li><a href="#" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Merlin's Data. All rights reserved. | Transforming Data Into Strategic Advantage</p>
+            </div>
         </div>
     </footer>
 
