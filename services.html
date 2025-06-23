@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - MerlinsGroup</title>
+    <title>Our Services - MerlinsData</title>
     <style>
         * {
             margin: 0;
@@ -29,6 +29,7 @@
             z-index: 1000;
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+            height: 70px;
         }
 
         .nav-container {
@@ -38,6 +39,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
         }
 
         .logo {
@@ -81,6 +83,17 @@
 
         .nav-links a:hover:after {
             width: 100%;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
         }
 
         /* Page Header */
@@ -229,22 +242,25 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        /* Service Features Grid */
+        /* Service Features Grid - 3x3 Layout */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             margin-bottom: 4rem;
         }
 
         .feature-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(147, 51, 234, 0.2);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 20px;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
         }
 
         .feature-card:before {
@@ -271,14 +287,14 @@
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             display: inline-block;
             color: #c084fc;
         }
 
         .feature-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             color: #fff;
             font-weight: 700;
@@ -286,20 +302,24 @@
 
         .feature-card p {
             color: #a78bfa;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            flex-grow: 1;
         }
 
         .feature-card ul {
             list-style: none;
+            margin-top: auto;
         }
 
         .feature-card li {
-            padding: 0.5rem 0;
+            padding: 0.25rem 0;
             color: #e9d5ff;
             position: relative;
-            padding-left: 2rem;
+            padding-left: 1.5rem;
             transition: all 0.3s;
+            font-size: 0.85rem;
         }
 
         .feature-card li:before {
@@ -312,7 +332,7 @@
         }
 
         .feature-card:hover li {
-            padding-left: 2.5rem;
+            padding-left: 2rem;
         }
 
         .feature-card:hover li:before {
@@ -446,22 +466,250 @@
             color: #7c3aed;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
+        /* Tablet Responsive */
+        @media (max-width: 1024px) and (min-width: 769px) {
             .page-header h1 {
+                font-size: 3rem;
+            }
+
+            .service-header h2 {
                 font-size: 2.5rem;
             }
 
+            .service-showcase {
+                height: 400px;
+            }
+
             .features-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .feature-card {
+                min-height: 280px;
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.5rem 0;
+                text-align: center;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .page-header {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            .page-header p {
+                font-size: 1.1rem;
+            }
+
+            .service-section {
+                padding: 4rem 1rem;
+            }
+
+            .service-header {
+                margin-bottom: 3rem;
+            }
+
+            .service-icon-large {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .service-header h2 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .service-header p {
+                font-size: 1.1rem;
             }
 
             .service-showcase {
                 height: 300px;
+                margin: 2rem 0;
+            }
+
+            .showcase-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .showcase-content p {
+                font-size: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+                min-height: auto;
+            }
+
+            .feature-icon {
+                font-size: 2rem;
+            }
+
+            .feature-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .feature-card p {
+                font-size: 0.9rem;
+            }
+
+            .feature-card li {
+                font-size: 0.85rem;
+                padding: 0.2rem 0;
+            }
+
+            .service-cta {
+                padding: 2rem 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .service-cta h3 {
+                font-size: 1.8rem;
+            }
+
+            .service-cta p {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-brand,
+            .footer-links {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            footer {
+                padding: 3rem 1rem 2rem;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+                letter-spacing: -0.5px;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .service-icon-large {
+                font-size: 2.5rem;
+            }
+
+            .service-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-header p {
+                font-size: 1rem;
+            }
+
+            .service-showcase {
+                height: 250px;
+            }
+
+            .showcase-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .showcase-content p {
+                font-size: 0.9rem;
+            }
+
+            .feature-card {
+                padding: 1rem;
+            }
+
+            .feature-icon {
+                font-size: 1.8rem;
+            }
+
+            .feature-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .feature-card p {
+                font-size: 0.85rem;
+            }
+
+            .feature-card li {
+                font-size: 0.8rem;
+            }
+
+            .service-cta {
+                padding: 1.5rem 1rem;
+            }
+
+            .service-cta h3 {
+                font-size: 1.5rem;
+            }
+
+            .service-cta p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -470,7 +718,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">MerlinsGroup</a>
+            <a href="index.html" class="logo">MerlinsData</a>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
@@ -513,8 +761,8 @@
                     <h3>Strategic Marketing Planning</h3>
                     <p>Data-driven strategies tailored to your unique business goals and market position.</p>
                     <ul>
-                        <li>In-depth market research & competitor analysis</li>
-                        <li>Customer persona development & journey mapping</li>
+                        <li>Market research & competitor analysis</li>
+                        <li>Customer persona development</li>
                         <li>Omnichannel campaign strategy</li>
                         <li>KPI framework & ROI tracking</li>
                     </ul>
@@ -577,34 +825,6 @@
                         <li>Visual identity design</li>
                         <li>Brand voice & messaging</li>
                         <li>Brand guidelines & assets</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
-                    <h3>Website Development</h3>
-                    <p>Build stunning, high-converting websites that drive business growth.</p>
-                    <ul>
-                        <li>Custom website design & development</li>
-                        <li>E-commerce solutions (Shopify, WooCommerce)</li>
-                        <li>Landing page optimization</li>
-                        <li>Mobile-responsive design</li>
-                        <li>Website speed optimization</li>
-                        <li>CMS integration (WordPress, Webflow)</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📢</div>
-                    <h3>Advertising & Media Buying</h3>
-                    <p>Maximize ROI with expert media buying and campaign management.</p>
-                    <ul>
-                        <li>Google Ads management & optimization</li>
-                        <li>Facebook & Instagram advertising</li>
-                        <li>LinkedIn B2B advertising</li>
-                        <li>TikTok & YouTube advertising</li>
-                        <li>Programmatic display advertising</li>
-                        <li>Retargeting & remarketing campaigns</li>
                     </ul>
                 </div>
             </div>
@@ -902,7 +1122,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>MerlinsGroup</h3>
+                <h3>MerlinsData</h3>
                 <p>Transforming businesses with cutting-edge marketing, robust database solutions, and innovative AI technologies. Your success is our mission.</p>
             </div>
             <div class="footer-links">
@@ -917,14 +1137,14 @@
             <div class="footer-links">
                 <h4>Get in Touch</h4>
                 <ul>
-                    <li><a href="mailto:contact@merlinsgroup.com">contact@merlinsgroup.com</a></li>
+                    <li><a href="mailto:contact@merlinsdata.com">contact@merlinsdata.com</a></li>
                     <li><a href="#">LinkedIn</a></li>
                     <li><a href="#">Twitter</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 MerlinsGroup. All rights reserved. | Elevating businesses to new heights.</p>
+            <p>&copy; 2024 MerlinsData. All rights reserved. | Elevating businesses to new heights.</p>
         </div>
     </footer>
 
