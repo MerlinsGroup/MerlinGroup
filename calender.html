@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Consultation - MerlinsGroup</title>
+    <title>Book Now - MerlinsData</title>
     <style>
         * {
             margin: 0;
@@ -29,6 +29,7 @@
             z-index: 1000;
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+            height: 70px;
         }
 
         .nav-container {
@@ -38,6 +39,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
         }
 
         .logo {
@@ -83,6 +85,17 @@
             width: 100%;
         }
 
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
         /* Page Header */
         .page-header {
             background: linear-gradient(135deg, #000 0%, #1a0033 100%);
@@ -100,7 +113,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
             opacity: 0.2;
@@ -133,309 +146,242 @@
         .page-header p {
             font-size: 1.4rem;
             color: #e9d5ff;
+            margin-bottom: 2rem;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #c084fc;
+            display: block;
+        }
+
+        .stat-label {
+            color: #e9d5ff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Main Content */
-        .booking-container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 2rem;
+        .main-content {
+            padding: 6rem 2rem;
+            background: #0a0a0a;
         }
 
-        /* Two Column Layout */
-        .booking-content {
+        .content-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
         }
 
-        /* Left Column - Benefits */
-        .booking-benefits {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(147, 51, 234, 0.2);
-            padding: 2.5rem;
-            border-radius: 20px;
-            height: fit-content;
-        }
-
-        .booking-benefits h2 {
-            font-size: 2rem;
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: start;
-            margin-bottom: 2rem;
-        }
-
-        .benefit-icon {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            color: #c084fc;
-            min-width: 30px;
-        }
-
-        .benefit-text h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .benefit-text p {
-            color: #a78bfa;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Right Column - Calendar */
+        /* Calendar Section */
         .calendar-section {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(147, 51, 234, 0.2);
-            padding: 2.5rem;
             border-radius: 20px;
-        }
-
-        .calendar-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .calendar-header h2 {
-            font-size: 2rem;
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-
-        .calendar-header p {
-            color: #a78bfa;
-        }
-
-        .calendar-placeholder {
-            background: rgba(147, 51, 234, 0.05);
-            border: 2px dashed rgba(147, 51, 234, 0.3);
-            border-radius: 15px;
-            padding: 4rem 2rem;
-            text-align: center;
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .calendar-placeholder h3 {
-            font-size: 1.5rem;
-            color: #c084fc;
-            margin-bottom: 1rem;
-        }
-
-        .calendar-placeholder p {
-            color: #a78bfa;
-            margin-bottom: 1rem;
-        }
-
-        .placeholder-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: #9333ea;
-            opacity: 0.5;
-        }
-
-        /* Process Steps */
-        .process-section {
-            background: #0a0a0a;
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .process-header {
-            margin-bottom: 4rem;
-        }
-
-        .process-header h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: 900;
-        }
-
-        .process-header h2 span {
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .process-header p {
-            font-size: 1.2rem;
-            color: #a78bfa;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .process-step {
-            position: relative;
             padding: 2rem;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .process-step:not(:last-child):after {
-            content: '';
-            position: absolute;
-            top: 50px;
-            left: 60%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #9333ea, transparent);
-            z-index: 1;
-        }
-
-        .process-step h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .process-step p {
-            color: #a78bfa;
-            line-height: 1.6;
-        }
-
-        /* Testimonial Section */
-        .testimonial-section {
-            background: #000;
-            padding: 5rem 2rem;
-            position: relative;
             overflow: hidden;
         }
 
-        .testimonial-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            filter: grayscale(100%);
-        }
-
-        .testimonial-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-container h2 {
+        .calendar-section h2 {
             font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #fff;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            text-transform: uppercase;
         }
 
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(147, 51, 234, 0.2);
-            padding: 3rem;
-            border-radius: 20px;
+        .calendar-section p {
+            color: #a78bfa;
             margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .testimonial-card:before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 30px;
-            font-size: 80px;
-            color: #9333ea;
-            opacity: 0.3;
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-content {
-            font-size: 1.2rem;
-            color: #e9d5ff;
-            margin-bottom: 2rem;
-            font-style: italic;
+            font-size: 1.1rem;
             line-height: 1.8;
         }
 
-        .testimonial-author {
+        .calendly-container {
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+            min-height: 700px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .contact-section p {
+            color: #a78bfa;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(147, 51, 234, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            transition: all 0.3s;
         }
 
-        .author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #c084fc;
+        .contact-item:hover {
+            background: rgba(147, 51, 234, 0.2);
+            border-color: rgba(147, 51, 234, 0.5);
+            transform: translateY(-2px);
         }
 
-        .author-info h4 {
+        .contact-icon {
+            font-size: 1.5rem;
             color: #c084fc;
-            margin-bottom: 0.25rem;
+            min-width: 24px;
         }
 
-        .author-info p {
-            color: #a78bfa;
+        .contact-details h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-details a {
+            color: #e9d5ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: #c084fc;
+        }
+
+        .contact-note {
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-note h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .contact-note p {
+            color: #f3e8ff;
+            margin: 0;
             font-size: 0.9rem;
         }
 
-        /* CTA Section */
-        .final-cta {
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            color: white;
-            padding: 4rem 2rem;
+        /* Features Section */
+        .features-section {
+            padding: 6rem 2rem;
+            background: #000;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .final-cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
+        .features-header {
+            margin-bottom: 4rem;
         }
 
-        .final-cta p {
+        .features-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .features-header p {
+            color: #a78bfa;
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #f3e8ff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            background: rgba(147, 51, 234, 0.1);
+            border-color: rgba(147, 51, 234, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .feature-item .icon {
+            font-size: 3rem;
+            color: #c084fc;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: #a78bfa;
+            line-height: 1.6;
         }
 
         /* Footer */
@@ -499,15 +445,16 @@
             color: #7c3aed;
         }
 
-        /* Mobile Navigation */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .content-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-section {
+                position: static;
+            }
         }
 
         @media (max-width: 768px) {
@@ -521,7 +468,7 @@
 
             .nav-links {
                 position: fixed;
-                top: 60px;
+                top: 70px;
                 left: 0;
                 right: 0;
                 background: rgba(0, 0, 0, 0.98);
@@ -531,7 +478,7 @@
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
                 border-bottom: 1px solid rgba(147, 51, 234, 0.2);
-                z-index: 999;
+                backdrop-filter: blur(10px);
             }
 
             .nav-links.active {
@@ -541,204 +488,103 @@
             .nav-links a {
                 font-size: 1.1rem;
                 padding: 0.5rem 0;
+                text-align: center;
             }
 
             .logo {
                 font-size: 1.5rem;
             }
-        }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
+            .page-header {
+                padding: 6rem 1rem 3rem;
+            }
+
             .page-header h1 {
                 font-size: 2.5rem;
+                line-height: 1.2;
             }
 
             .page-header p {
                 font-size: 1.1rem;
             }
 
-            .booking-container {
-                margin: 30px auto;
+            .header-stats {
+                flex-direction: column;
+                gap: 1.5rem;
             }
 
-            .booking-content {
+            .main-content {
+                padding: 4rem 1rem;
+            }
+
+            .content-container {
+                gap: 2rem;
+            }
+
+            .calendar-section,
+            .contact-section {
+                padding: 1.5rem;
+            }
+
+            .calendar-section h2 {
+                font-size: 2rem;
+            }
+
+            .contact-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .calendly-container {
+                min-height: 600px;
+            }
+
+            .features-section {
+                padding: 4rem 1rem;
+            }
+
+            .features-header h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .booking-benefits {
-                order: 2;
-            }
-
-            .calendar-section {
-                order: 1;
-            }
-
-            .booking-benefits h2 {
-                font-size: 1.8rem;
-            }
-
-            .benefit-item {
-                margin-bottom: 1.5rem;
-            }
-
-            .benefit-text h3 {
-                font-size: 1.1rem;
-            }
-
-            .calendar-placeholder {
-                min-height: 400px;
-                padding: 3rem 1.5rem;
-            }
-
-            .process-header h2 {
-                font-size: 2rem;
-            }
-
-            .process-steps {
-                gap: 2rem;
-            }
-
-            .process-step:not(:last-child):after {
-                display: none;
-            }
-
-            .step-number {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .testimonial-container h2 {
-                font-size: 2rem;
-            }
-
-            .testimonial-content {
-                font-size: 1.1rem;
-            }
-
-            .final-cta h2 {
-                font-size: 2rem;
-            }
-
-            .final-cta p {
-                font-size: 1.1rem;
+                gap: 1.5rem;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            footer {
+                padding: 3rem 1rem 2rem;
             }
         }
 
         @media (max-width: 480px) {
-            .page-header {
-                padding: 6rem 1rem 3rem;
-            }
-
             .page-header h1 {
                 font-size: 2rem;
             }
 
-            .booking-container {
-                padding: 0 1rem;
-            }
-
-            .booking-benefits,
-            .calendar-section {
-                padding: 2rem 1.5rem;
-            }
-
-            .booking-benefits h2 {
-                font-size: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .benefit-icon {
-                font-size: 1.2rem;
-                min-width: 25px;
-            }
-
-            .benefit-text h3 {
-                font-size: 1rem;
-            }
-
-            .benefit-text p {
-                font-size: 0.85rem;
-            }
-
-            .calendar-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .calendar-header p {
-                font-size: 0.9rem;
-            }
-
-            .calendar-placeholder {
-                min-height: 350px;
-                padding: 2rem 1rem;
-            }
-
-            .placeholder-icon {
-                font-size: 3rem;
-            }
-
-            .process-section {
-                padding: 3rem 1rem;
-            }
-
-            .process-header h2 {
+            .calendar-section h2 {
                 font-size: 1.8rem;
             }
 
-            .process-header p {
-                font-size: 1rem;
+            .contact-section h2 {
+                font-size: 1.3rem;
             }
 
-            .process-step {
-                padding: 1.5rem 1rem;
+            .calendly-container {
+                min-height: 500px;
             }
 
-            .process-step h3 {
-                font-size: 1.1rem;
+            .contact-item {
+                padding: 1rem;
             }
 
-            .process-step p {
-                font-size: 0.9rem;
-            }
-
-            .testimonial-section {
-                padding: 3rem 1rem;
-            }
-
-            .testimonial-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .testimonial-content {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .author-image {
-                width: 50px;
-                height: 50px;
-            }
-
-            .final-cta {
-                padding: 3rem 1rem;
-            }
-        }
-
-        /* Touch-friendly adjustments */
-        @media (hover: none) and (pointer: coarse) {
-            .benefit-item:active {
-                transform: scale(0.98);
-            }
-
-            .process-step:active {
-                transform: scale(0.98);
+            .feature-item {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -747,7 +593,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">MerlinsGroup</a>
+            <a href="index.html" class="logo">MerlinsData</a>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
@@ -763,121 +609,125 @@
     <section class="page-header">
         <div class="page-header-content">
             <h1>Book Your Consultation</h1>
-            <p>Take the first step towards transforming your business</p>
+            <p>Ready to transform your business? Schedule a free strategy session with our experts and discover how we can accelerate your growth.</p>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-number">15 min</span>
+                    <span class="stat-label">Free Consultation</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available Support</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Same Day</span>
+                    <span class="stat-label">Response Time</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Main Booking Section -->
-    <section class="booking-container">
-        <div class="booking-content">
-            <!-- Left Column - Benefits -->
-            <div class="booking-benefits">
-                <h2>What You'll Get</h2>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🎯</div>
-                    <div class="benefit-text">
-                        <h3>Custom Strategy Session</h3>
-                        <p>Get a personalized roadmap designed specifically for your business goals and challenges.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">💡</div>
-                    <div class="benefit-text">
-                        <h3>Expert Insights</h3>
-                        <p>Tap into our team's extensive experience across marketing, databases, and AI solutions.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">📊</div>
-                    <div class="benefit-text">
-                        <h3>ROI Analysis</h3>
-                        <p>Understand the potential return on investment for each recommended solution.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🚀</div>
-                    <div class="benefit-text">
-                        <h3>Action Plan</h3>
-                        <p>Leave with clear next steps and a timeline for implementation.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column - Calendar -->
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="content-container">
+            <!-- Calendar Section -->
             <div class="calendar-section">
-                <div class="calendar-header">
-                    <h2>Schedule Your Free Consultation</h2>
-                    <p>Choose a time that works best for you</p>
+                <h2>Schedule Your Meeting</h2>
+                <p>Choose a time that works best for you. Our team of experts is ready to discuss your project requirements and provide tailored solutions for your business needs.</p>
+                
+                <div class="calendly-container">
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/merlinsdata" style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    <!-- Calendly inline widget end -->
                 </div>
-                <div class="calendar-placeholder">
-                    <div class="placeholder-icon">📅</div>
-                    <h3>Calendar Booking Widget</h3>
-                    <p>Your calendar embed will appear here</p>
-                    <p style="color: #7c3aed; font-style: italic;">Replace this with your Calendly, Cal.com, or other booking widget</p>
-                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Process Section -->
-    <section class="process-section">
-        <div class="process-header">
-            <h2>How Our <span>Consultation Process</span> Works</h2>
-            <p>Simple, efficient, and designed to deliver value from day one</p>
-        </div>
-        <div class="process-steps">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <h3>Book Your Call</h3>
-                <p>Choose a convenient time slot and tell us about your business needs</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <h3>Discovery Session</h3>
-                <p>We'll dive deep into your challenges and goals during a 45-minute strategy call</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <h3>Custom Proposal</h3>
-                <p>Receive a tailored solution package designed to accelerate your growth</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <h3>Start Growing</h3>
-                <p>Begin implementation with our expert team guiding you every step of the way</p>
-            </div>
-        </div>
-    </section>
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h2>Get in Touch</h2>
+                <p>Prefer to contact us directly? Reach out through any of the methods below and we'll get back to you promptly.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Phone Numbers</h3>
+                            <a href="tel:+447380139066">+44 7380 139066</a><br>
+                            <a href="tel:+447885399987">+44 7885 399987</a>
+                        </div>
+                    </div>
 
-    <!-- Testimonial Section -->
-    <section class="testimonial-section">
-        <div class="testimonial-bg"></div>
-        <div class="testimonial-container">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonial-card">
-                <p class="testimonial-content">"The consultation with MerlinsGroup was a game-changer. They identified opportunities we hadn't even considered and provided a clear path to 3x our revenue within 12 months."</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="David Chen" class="author-image">
-                    <div class="author-info">
-                        <h4>David Chen</h4>
-                        <p>CEO, TechVentures Inc.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <a href="mailto:team@merlinsgroup.co.uk">team@merlinsgroup.co.uk</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h3>Business Hours</h3>
+                            <span style="color: #e9d5ff;">Mon - Fri: 9:00 AM - 6:00 PM GMT</span><br>
+                            <span style="color: #e9d5ff;">Weekend: By Appointment</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🌍</div>
+                        <div class="contact-details">
+                            <h3>Global Reach</h3>
+                            <span style="color: #e9d5ff;">Serving clients worldwide</span><br>
+                            <span style="color: #e9d5ff;">Remote & on-site support</span>
+                        </div>
                     </div>
                 </div>
+
+                <div class="contact-note">
+                    <h3>Quick Response Guarantee</h3>
+                    <p>We respond to all inquiries within 2 hours during business hours</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <h2>Ready to Transform Your Business?</h2>
-        <p>Don't wait - spots fill up quickly. Book your free consultation today!</p>
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="features-header">
+                <h2>What to Expect</h2>
+                <p>Here's what happens when you book a consultation with MerlinsData</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="icon">🎯</div>
+                    <h3>Discovery Call</h3>
+                    <p>We'll discuss your business goals, current challenges, and specific requirements to understand how we can best help you succeed.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="icon">📊</div>
+                    <h3>Custom Strategy</h3>
+                    <p>Our experts will create a tailored action plan with specific recommendations and timelines for your project.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="icon">🚀</div>
+                    <h3>Implementation</h3>
+                    <p>We'll work together to execute the strategy with regular updates and support throughout the entire process.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>MerlinsGroup</h3>
+                <h3>MerlinsData</h3>
                 <p>Transforming businesses with cutting-edge marketing, robust database solutions, and innovative AI technologies. Your success is our mission.</p>
             </div>
             <div class="footer-links">
@@ -892,14 +742,14 @@
             <div class="footer-links">
                 <h4>Get in Touch</h4>
                 <ul>
-                    <li><a href="mailto:contact@merlinsgroup.com">contact@merlinsgroup.com</a></li>
+                    <li><a href="mailto:team@merlinsgroup.co.uk">team@merlinsgroup.co.uk</a></li>
+                    <li><a href="tel:+447380139066">+44 7380 139066</a></li>
                     <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Twitter</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 MerlinsGroup. All rights reserved. | Elevating businesses to new heights.</p>
+            <p>&copy; 2024 MerlinsData. All rights reserved. | Elevating businesses to new heights.</p>
         </div>
     </footer>
 
@@ -954,26 +804,10 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.benefit-item, .process-step').forEach(el => {
+        document.querySelectorAll('.contact-item, .feature-item').forEach(el => {
             el.style.opacity = '0';
             observer.observe(el);
         });
-
-        // Add animation styles
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
