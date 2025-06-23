@@ -123,79 +123,162 @@
             font-size: 16px;
         }
 
-        /* Hero Section */
+        /* Hero Slideshow Section */
         .hero {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 120px 0 80px;
-            margin-top: 72px;
             position: relative;
+            height: 100vh;
+            min-height: 600px;
+            margin-top: 72px;
             overflow: hidden;
         }
 
-        .hero::before {
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.05;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
             z-index: 1;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
+        .slide-1 {
+            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
         }
 
-        .hero h1 {
+        .slide-2 {
+            background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+        }
+
+        .slide-3 {
+            background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 24px;
+        }
+
+        .slide-content h1 {
             font-size: 56px;
             font-weight: 700;
-            color: #1f2937;
             margin-bottom: 24px;
             line-height: 1.1;
             letter-spacing: -1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .hero-subtitle {
+        .slide-content .hero-subtitle {
             font-size: 24px;
-            color: #667eea;
             margin-bottom: 24px;
             font-weight: 600;
             letter-spacing: 0.5px;
+            opacity: 0.95;
         }
 
-        .hero-description {
+        .slide-content .hero-description {
             font-size: 20px;
-            color: #6b7280;
             margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
             line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
             display: inline-block;
-            background: #667eea;
-            color: #ffffff;
             padding: 16px 32px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             font-size: 16px;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        .cta-button:hover {
-            background: #5a67d8;
+        .cta-button.primary {
+            background: #ffffff;
+            color: #667eea;
+        }
+
+        .cta-button.primary:hover {
+            background: #f8fafc;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .cta-button.secondary:hover {
+            background: #ffffff;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Slideshow Navigation Dots */
+        .slideshow-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 3;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #ffffff;
+            transform: scale(1.2);
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
         }
 
         /* Stats Section */
@@ -702,7 +785,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+                    @media (max-width: 768px) {
             .mobile-menu-toggle {
                 display: block;
             }
@@ -741,16 +824,32 @@
                 font-size: 14px;
             }
 
-            .hero h1 {
-                font-size: 40px;
+            .hero {
+                height: 80vh;
+                min-height: 500px;
             }
 
-            .hero-subtitle {
-                font-size: 20px;
+            .slide-content h1 {
+                font-size: 36px;
             }
 
-            .hero-description {
+            .slide-content .hero-subtitle {
                 font-size: 18px;
+            }
+
+            .slide-content .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
             }
 
             .section-title {
@@ -792,19 +891,20 @@
             }
 
             .hero {
-                padding: 100px 0 60px;
+                height: 70vh;
+                min-height: 450px;
             }
 
-            .hero h1 {
-                font-size: 32px;
+            .slide-content h1 {
+                font-size: 28px;
             }
 
-            .hero-subtitle {
-                font-size: 18px;
-            }
-
-            .hero-description {
+            .slide-content .hero-subtitle {
                 font-size: 16px;
+            }
+
+            .slide-content .hero-description {
+                font-size: 14px;
             }
 
             .section-title {
@@ -844,18 +944,63 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Slideshow Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Transform Your Business With Elite Solutions</h1>
-                <p class="hero-subtitle">Marketing • Web Development • Databases • AI Solutions</p>
-                <p class="hero-description">
-                    Everything you need to dominate your industry. Unlock the power of your data with 
-                    professional analytics solutions that drive strategic advantage and measurable results.
-                </p>
-                <a href="calendar.html" class="cta-button">Get Started Today</a>
+        <div class="slideshow-container">
+            <!-- Slide 1 - Data Analytics -->
+            <div class="slide slide-1 active">
+                <div class="slide-content">
+                    <h1>Transform Your Data Into Strategic Advantage</h1>
+                    <p class="hero-subtitle">Advanced Analytics • Business Intelligence • Data Solutions</p>
+                    <p class="hero-description">
+                        Unlock the power of your data with professional analytics solutions that drive 
+                        strategic advantage and measurable business results across your organization.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="calendar.html" class="cta-button primary">Contact Us</a>
+                        <a href="services.html#database" class="cta-button secondary">Learn More</a>
+                    </div>
+                </div>
             </div>
+
+            <!-- Slide 2 - Marketing Excellence -->
+            <div class="slide slide-2">
+                <div class="slide-content">
+                    <h1>Dominate Your Market With Elite Marketing</h1>
+                    <p class="hero-subtitle">Digital Marketing • Performance Advertising • Brand Development</p>
+                    <p class="hero-description">
+                        Drive explosive growth with data-driven marketing strategies, cutting-edge campaigns, 
+                        and ROI-focused solutions that deliver real results and measurable ROI.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="calendar.html" class="cta-button primary">Contact Us</a>
+                        <a href="services.html#marketing" class="cta-button secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 - Technology Solutions -->
+            <div class="slide slide-3">
+                <div class="slide-content">
+                    <h1>Build The Future With Cutting-Edge Technology</h1>
+                    <p class="hero-subtitle">Web Development • AI Solutions • Cloud Infrastructure</p>
+                    <p class="hero-description">
+                        Create stunning digital experiences and intelligent automation systems that 
+                        transform how you do business and serve your customers in the digital age.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="calendar.html" class="cta-button primary">Contact Us</a>
+                        <a href="services.html#webdev" class="cta-button secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="slideshow-nav">
+            <span class="nav-dot active" onclick="currentSlide(1)"></span>
+            <span class="nav-dot" onclick="currentSlide(2)"></span>
+            <span class="nav-dot" onclick="currentSlide(3)"></span>
         </div>
     </section>
 
@@ -1185,6 +1330,31 @@
     </div>
 
     <script>
+        // Slideshow functionality
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.nav-dot');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slideIndex = (n + slides.length) % slides.length;
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+
+        function currentSlide(n) {
+            showSlide(n - 1);
+        }
+
+        function nextSlide() {
+            showSlide(slideIndex + 1);
+        }
+
+        // Auto-advance slideshow every 5 seconds
+        setInterval(nextSlide, 5000);
+
         // Mobile menu toggle
         function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
