@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Engineering & Analytics - MerlinsGroup</title>
+    <title>Our Portfolio - MerlinsGroup</title>
     <style>
         * {
             margin: 0;
@@ -16,7 +16,6 @@
             line-height: 1.6;
             color: #333;
             background: #000;
-            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -84,6 +83,7 @@
             width: 100%;
         }
 
+        /* Mobile Navigation */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -94,91 +94,97 @@
             padding: 0.5rem;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #000 0%, #1a0033 50%, #000 100%);
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.5rem 0;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #000 0%, #1a0033 100%);
             color: white;
-            padding: 8rem 2rem 6rem;
+            padding: 8rem 2rem 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero:before {
+        .page-header:before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(192, 132, 252, 0.1) 0%, transparent 50%);
-            opacity: 0.7;
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            filter: grayscale(50%);
         }
 
-        .hero-content {
+        .page-header-content {
             position: relative;
             z-index: 1;
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #fff;
-            text-transform: none;
-            letter-spacing: -0.02em;
+        .page-header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc, #e9d5ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+            text-transform: uppercase;
         }
 
         @keyframes shimmer {
             to { background-position: 200% center; }
         }
 
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #c084fc;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
+        .page-header p {
+            font-size: 1.4rem;
             color: #e9d5ff;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            line-height: 1.8;
         }
 
-        .breadcrumb {
-            background: rgba(147, 51, 234, 0.1);
-            padding: 1rem 2rem;
-            margin-top: 80px;
-            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
-        }
-
-        .breadcrumb-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: #c084fc;
-        }
-
-        .breadcrumb a {
-            color: #9333ea;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .breadcrumb a:hover {
-            color: #c084fc;
-        }
-
-        /* Stats Section */
-        .stats-section {
+        /* Portfolio Stats */
+        .portfolio-stats {
             background: #0a0a0a;
             padding: 4rem 2rem;
             border-bottom: 1px solid rgba(147, 51, 234, 0.2);
@@ -188,30 +194,27 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             text-align: center;
         }
 
         .stat-box {
-            padding: 2.5rem;
+            padding: 2rem;
             background: rgba(147, 51, 234, 0.05);
-            border-radius: 20px;
-            border: 1px solid rgba(147, 51, 234, 0.3);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            border-radius: 15px;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            transition: all 0.3s;
         }
 
         .stat-box:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             background: rgba(147, 51, 234, 0.1);
-            border-color: rgba(147, 51, 234, 0.6);
-            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.2);
+            border-color: rgba(147, 51, 234, 0.5);
         }
 
         .stat-number {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: bold;
             background: linear-gradient(45deg, #9333ea, #c084fc);
             -webkit-background-clip: text;
@@ -223,300 +226,251 @@
             color: #a78bfa;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        /* Case Studies Section */
-        .case-studies {
+        /* Category Sections */
+        .category-section {
+            padding: 4rem 0;
             background: #000;
-            padding: 6rem 0;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.1);
         }
 
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-            padding: 0 2rem;
+        .category-section:nth-child(even) {
+            background: #0a0a0a;
         }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: #a78bfa;
-            line-height: 1.8;
-        }
-
-        .case-study {
+        .category-header {
             max-width: 1200px;
-            margin: 0 auto 6rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .category-header p {
+            font-size: 1.1rem;
+            color: #a78bfa;
+            max-width: 800px;
+        }
+
+        /* Horizontal Scroll Container */
+        .scroll-container {
+            position: relative;
+            overflow: hidden;
             padding: 0 2rem;
         }
 
-        .case-study-card {
+        .scroll-wrapper {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 1rem 0 2rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #9333ea #1a1a1a;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 4px;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            border-radius: 4px;
+        }
+
+        /* Portfolio Cards */
+        .portfolio-card {
+            flex: 0 0 400px;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(147, 51, 234, 0.2);
-            border-radius: 25px;
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.3s;
         }
 
-        .case-study-card:hover {
-            transform: translateY(-5px);
+        .portfolio-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(147, 51, 234, 0.3);
             border-color: rgba(147, 51, 234, 0.5);
         }
 
-        .case-study-header {
-            background: linear-gradient(135deg, #1a0033, #000);
-            padding: 3rem;
-            text-align: center;
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
             position: relative;
         }
 
-        .case-study-header:before {
-            content: '';
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-card:hover .portfolio-image img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            filter: grayscale(100%);
-        }
-
-        .case-study-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .client-logo {
-            width: 80px;
-            height: 80px;
-            background: rgba(147, 51, 234, 0.1);
-            border: 1px solid rgba(147, 51, 234, 0.3);
-            border-radius: 50%;
-            margin: 0 auto 2rem;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(147, 51, 234, 0.2);
             color: #c084fc;
-            font-weight: 600;
-        }
-
-        .case-study h3 {
-            font-size: 2rem;
-            color: #fff;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .case-study-tagline {
-            font-size: 1.3rem;
-            color: #c084fc;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .challenge-solution {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            padding: 3rem;
-        }
-
-        .challenge, .solution {
-            background: rgba(147, 51, 234, 0.05);
-            padding: 2.5rem;
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
-            border: 1px solid rgba(147, 51, 234, 0.2);
+            font-size: 0.8rem;
+            border: 1px solid rgba(147, 51, 234, 0.3);
         }
 
-        .challenge h4, .solution h4 {
-            font-size: 1.5rem;
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
             color: #fff;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
         }
 
-        .challenge-icon, .solution-icon {
-            font-size: 2rem;
-        }
-
-        .challenge p, .solution p {
+        .portfolio-content p {
             color: #a78bfa;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .tech-stack {
-            padding: 2rem 3rem;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .tech-stack h4 {
-            color: #c084fc;
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            line-height: 1.8;
+            font-size: 0.95rem;
         }
 
-        .tech-badges {
+        .portfolio-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .tech-badge {
-            background: rgba(147, 51, 234, 0.2);
-            color: #e9d5ff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            border: 1px solid rgba(147, 51, 234, 0.3);
-            transition: all 0.3s;
-        }
-
-        .tech-badge:hover {
-            background: rgba(147, 51, 234, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .results {
-            padding: 3rem;
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(192, 132, 252, 0.05));
-        }
-
-        .results h4 {
-            color: #fff;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-            text-align: center;
-        }
-
-        .result-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .metric {
-            text-align: center;
-            padding: 1.5rem;
             background: rgba(147, 51, 234, 0.1);
-            border-radius: 15px;
-            border: 1px solid rgba(147, 51, 234, 0.2);
+            color: #e9d5ff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-family: 'Courier New', monospace;
         }
 
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: bold;
+        .portfolio-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: linear-gradient(45deg, #9333ea, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-label {
-            color: #a78bfa;
-            font-size: 0.9rem;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
             text-transform: uppercase;
+            font-size: 0.85rem;
             letter-spacing: 1px;
         }
 
-        .quote {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid #9333ea;
-            margin-top: 2rem;
+        .portfolio-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.4);
         }
 
-        .quote-text {
-            font-size: 1.2rem;
-            color: #e9d5ff;
-            font-style: italic;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .quote-author {
+        .portfolio-link.secondary {
+            background: transparent;
+            border: 1px solid #c084fc;
             color: #c084fc;
-            font-weight: bold;
         }
 
-        /* Services Overview */
-        .services-overview {
-            background: #0a0a0a;
-            padding: 6rem 0;
-            border-top: 1px solid rgba(147, 51, 234, 0.2);
+        .portfolio-link.secondary:hover {
+            background: rgba(147, 51, 234, 0.1);
         }
 
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
-
-        .service-card {
-            background: rgba(147, 51, 234, 0.05);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(147, 51, 234, 0.2);
+        /* Scroll Buttons */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(147, 51, 234, 0.8);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
             transition: all 0.3s;
-        }
-
-        .service-card h3 {
-            color: #fff;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            color: #a78bfa;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .service-features {
-            list-style: none;
-        }
-
-        .service-features li {
-            color: #c084fc;
-            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: center;
+            font-size: 1.2rem;
         }
 
-        .service-features li:before {
-            content: '✓';
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-            font-size: 1.2rem;
+        .scroll-btn:hover {
+            background: #9333ea;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-btn.prev {
+            left: 10px;
+        }
+
+        .scroll-btn.next {
+            right: 10px;
         }
 
         /* CTA Section */
@@ -553,23 +507,16 @@
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
-            font-weight: 600;
-            text-transform: none;
+            font-weight: 900;
+            text-transform: uppercase;
         }
 
         .cta-section p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             color: #f3e8ff;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
         .cta-button {
@@ -593,96 +540,212 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        .cta-button.secondary {
-            background: transparent;
-            border: 2px solid #fff;
-            color: #fff;
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(147, 51, 234, 0.2);
         }
 
-        .cta-button.secondary:hover {
-            background: #fff;
-            color: #9333ea;
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: #a78bfa;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            color: #c084fc;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #a78bfa;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #e9d5ff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(147, 51, 234, 0.1);
+            color: #7c3aed;
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: rgba(0, 0, 0, 0.98);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                border-bottom: 1px solid rgba(147, 51, 234, 0.2);
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .hero h1 {
+            .page-header h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.2rem;
+            .page-header p {
+                font-size: 1.1rem;
             }
 
-            .hero-description {
+            .category-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .category-header p {
                 font-size: 1rem;
             }
 
-            .challenge-solution {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 2rem;
-            }
-
-            .case-study h3 {
+            .category-icon {
                 font-size: 2rem;
             }
 
-            .section-header h2 {
+            .scroll-container {
+                padding: 0 1rem;
+            }
+
+            .portfolio-card {
+                flex: 0 0 300px;
+            }
+
+            .portfolio-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .portfolio-content p {
+                font-size: 0.9rem;
+            }
+
+            .portfolio-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .portfolio-link {
+                width: 100%;
+                text-align: center;
+                font-size: 0.8rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-box {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
                 font-size: 2.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .scroll-btn {
+                display: none;
             }
 
             .cta-section h2 {
                 font-size: 2rem;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .cta-section p {
+                font-size: 1.1rem;
             }
 
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
+            .tech-badge {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
+            .portfolio-card {
+                flex: 0 0 280px;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .category-header {
+                padding: 0 1rem;
+            }
+
+            .portfolio-image {
+                height: 200px;
+            }
+
+            .portfolio-content {
+                padding: 1.5rem;
             }
 
             .stat-number {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Touch-friendly adjustments */
+        @media (hover: none) and (pointer: coarse) {
+            .portfolio-card:active {
+                transform: scale(0.98);
+            }
+
+            .scroll-wrapper {
+                -webkit-overflow-scrolling: touch;
+                overflow-x: scroll;
+                overflow-y: hidden;
+            }
+
+            /* Remove hover effects on touch devices */
+            .portfolio-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .portfolio-overlay {
+                opacity: 1;
+                background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.8) 100%);
+            }
+
+            .portfolio-card:hover .portfolio-image img {
+                transform: none;
             }
         }
     </style>
@@ -703,286 +766,445 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <section class="breadcrumb">
-        <div class="breadcrumb-container">
-            <a href="index.html">Home</a> > 
-            <a href="portfolio.html">Portfolio</a> > 
-            <span>Data Engineering & Analytics</span>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Our Portfolio</h1>
+            <p>From cutting-edge data solutions to stunning websites and powerful marketing campaigns</p>
         </div>
     </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Data Engineering & Analytics</h1>
-            <p class="hero-subtitle">Transforming Raw Data Into Strategic Advantage</p>
-            <p class="hero-description">
-                We don't just handle data – we architect intelligent systems that turn information chaos into competitive advantage. 
-                From real-time analytics platforms to AI-powered monitoring systems, we've helped organizations across sectors 
-                unlock the true potential of their data ecosystem.
-            </p>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- Portfolio Stats -->
+    <section class="portfolio-stats">
         <div class="stats-container">
             <div class="stat-box">
-                <div class="stat-number">50TB+</div>
-                <div class="stat-label">Data Processed Daily</div>
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Projects Delivered</div>
             </div>
             <div class="stat-box">
-                <div class="stat-number">99.9%</div>
-                <div class="stat-label">System Uptime</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">25+</div>
+                <div class="stat-number">50+</div>
                 <div class="stat-label">Enterprise Clients</div>
             </div>
             <div class="stat-box">
-                <div class="stat-number">300%</div>
-                <div class="stat-label">Avg Performance Boost</div>
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Industries Served</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Retention</div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section -->
-    <section class="case-studies">
-        <div class="section-header">
-            <h2>Success Stories</h2>
-            <p>Real challenges, innovative solutions, measurable results. Discover how we've transformed data operations for leading organizations.</p>
+    <!-- Web Development Section -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2><span class="category-icon">💻</span> Web Development</h2>
+            <p>High-performance websites and e-commerce platforms that drive conversions</p>
         </div>
-
-        <!-- Ice Bank Jewellers Case Study -->
-        <div class="case-study" id="ice-bank-case-study">
-            <div class="case-study-card">
-                <div class="case-study-header">
-                    <div class="case-study-content">
-                        <div class="client-logo">IB</div>
-                        <h3>Ice Bank Jewellers</h3>
-                        <p class="case-study-tagline">"From Luxury Retail to Data-Driven Excellence"</p>
+        <div class="scroll-container">
+            <button class="scroll-btn prev" onclick="scrollCategory('web', -400)">‹</button>
+            <button class="scroll-btn next" onclick="scrollCategory('web', 400)">›</button>
+            <div class="scroll-wrapper" id="web-scroll">
+                <!-- Bordo Design -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="cutout8.png" alt="Bordo Design">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Interior Design</span>
+                                <span class="tag">Portfolio</span>
+                                <span class="tag">Animations</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="challenge-solution">
-                    <div class="challenge">
-                        <h4><span class="challenge-icon"></span>The Challenge</h4>
-                        <p>Ice Bank Jewellers, a premium jewelry retailer, was struggling with fragmented customer data across multiple platforms. Their inventory management was manual, customer insights were limited, and they couldn't track the customer journey effectively across their online and offline channels. With high-value transactions and discerning customers, they needed enterprise-level data intelligence.</p>
-                    </div>
-                    
-                    <div class="solution">
-                        <h4><span class="solution-icon"></span>Our Solution</h4>
-                        <p>We architected a comprehensive data ecosystem integrating their Shopify Plus platform, CRM, inventory systems, and customer touchpoints. Our solution included real-time analytics dashboards, automated inventory tracking, customer lifetime value modeling, and predictive analytics for demand forecasting.</p>
-                    </div>
-                </div>
-
-                <div class="tech-stack">
-                    <h4>Technology Stack</h4>
-                    <div class="tech-badges">
-                        <span class="tech-badge">Shopify Plus API</span>
-                        <span class="tech-badge">Azure Data Factory</span>
-                        <span class="tech-badge">Power BI</span>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">MongoDB</span>
-                        <span class="tech-badge">Machine Learning</span>
-                    </div>
-                </div>
-
-                <div class="results">
-                    <h4>Why This Matters for Your Business</h4>
-                    <p style="color: #a78bfa; line-height: 1.8; margin-bottom: 2rem; font-size: 1.1rem;">
-                        Ice Bank Jewellers was hemorrhaging money through manual inventory tracking and constant stockouts. Our integrated platform eliminated the guesswork and gave them predictive insights that prevent costly mistakes before they happen.
-                    </p>
-                    <p style="color: #a78bfa; line-height: 1.8; font-size: 1.1rem;">
-                        Now their team focuses on customers instead of spreadsheets, and management makes strategic decisions based on real data rather than gut feelings.
-                    </p>
-                    
-                    <div class="quote">
-                        <p class="quote-text">"The data platform eliminated manual processes that were costing us thousands monthly. We now have real-time inventory tracking and predictive analytics that prevented £400K in potential stockouts last quarter alone."</p>
-                        <p class="quote-author">— Sarah Mitchell, Operations Director, Ice Bank Jewellers</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bordo Design Case Study -->
-        <div class="case-study" id="bordo-design-case-study">
-            <div class="case-study-card">
-                <div class="case-study-header">
-                    <div class="case-study-content">
-                        <div class="client-logo">BD</div>
+                    <div class="portfolio-content">
                         <h3>Bordo Design</h3>
-                        <p class="case-study-tagline">"AI-Powered Productivity Monitoring for Creative Excellence"</p>
-                    </div>
-                </div>
-                
-                <div class="challenge-solution">
-                    <div class="challenge">
-                        <h4><span class="challenge-icon"></span>The Challenge</h4>
-                        <p>Bordo Design, a high-end interior design firm, needed to optimize team productivity while maintaining creative freedom. They required insights into project timelines, resource allocation, and team performance without being intrusive. Traditional time-tracking methods were incompatible with their creative workflow.</p>
-                    </div>
-                    
-                    <div class="solution">
-                        <h4><span class="solution-icon"></span>Our Solution</h4>
-                        <p>We developed an AI-powered productivity monitoring system using computer vision and behavioral analytics. The system provides real-time insights into work patterns, project progress, and team collaboration while respecting privacy and creative processes. Advanced algorithms analyze productivity patterns and provide actionable recommendations.</p>
+                        <p>Sophisticated portfolio website for premium interior design studio with elegant animations and immersive project galleries.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">GSAP</span>
+                            <span class="tech-badge">Tailwind CSS</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.bordodesign.com" target="_blank" class="portfolio-link">Visit Site</a>
+                            <a href="calendar.html" class="portfolio-link secondary">Get Similar</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="tech-stack">
-                    <h4>Technology Stack</h4>
-                    <div class="tech-badges">
-                        <span class="tech-badge">Azure AI Services</span>
-                        <span class="tech-badge">Computer Vision</span>
-                        <span class="tech-badge">TensorFlow</span>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Real-time Analytics</span>
-                        <span class="tech-badge">Power BI</span>
+                <!-- Bordo Glass -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="bordoglass.png" alt="Bordo Glass">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">B2B Platform</span>
+                                <span class="tag">Product Catalog</span>
+                                <span class="tag">CMS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Bordo Glass</h3>
+                        <p>B2B platform for glass manufacturing with dynamic product catalogs, technical specifications, and quote request system.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">WooCommerce</span>
+                            <span class="tech-badge">PHP</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.bordoglass.com" target="_blank" class="portfolio-link">Visit Site</a>
+                            <a href="calendar.html" class="portfolio-link secondary">Get Similar</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="results">
-                    <h4>The Real Business Impact</h4>
-                    <p style="color: #a78bfa; line-height: 1.8; margin-bottom: 2rem; font-size: 1.1rem;">
-                        Bordo Design's creative directors were drowning in admin work instead of doing what they're paid for. Our AI system eliminated the productivity tracking burden while providing better insights than any manual process.
-                    </p>
-                    <p style="color: #a78bfa; line-height: 1.8; font-size: 1.1rem;">
-                        Project timelines became predictable, client relationships improved, and the team could focus entirely on exceptional creative work.
-                    </p>
-                    
-                    <div class="quote">
-                        <p class="quote-text">"Before MerlinsGroup, we were spending 25 hours weekly on manual productivity tracking and reporting. Their AI system eliminated this entirely while providing insights we never had before. The cost savings alone paid for the system in under 6 months."</p>
-                        <p class="quote-author">— Alex Rodriguez, Creative Director, Bordo Design</p>
+                <!-- Santokh -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="santokh.png" alt="Santokh">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Marketing Agency</span>
+                                <span class="tag">Lead Generation</span>
+                                <span class="tag">SEO Optimized</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Birmingham City Council Case Study -->
-        <div class="case-study" id="birmingham-council-case-study">
-            <div class="case-study-card">
-                <div class="case-study-header">
-                    <div class="case-study-content">
-                        <div class="client-logo">BC</div>
-                        <h3>Birmingham City Council</h3>
-                        <p class="case-study-tagline">"Smart City Analytics for 1.1 Million Citizens"</p>
-                    </div>
-                </div>
-                
-                <div class="challenge-solution">
-                    <div class="challenge">
-                        <h4><span class="challenge-icon"></span>The Challenge</h4>
-                        <p>Birmingham City Council needed to modernize their data infrastructure to better serve 1.1 million citizens. They required real-time analytics for city services, predictive modeling for resource allocation, and integration of multiple departmental systems. The goal was to create a unified data platform for evidence-based decision making.</p>
-                    </div>
-                    
-                    <div class="solution">
-                        <h4><span class="solution-icon"></span>Our Solution</h4>
-                        <p>We designed and implemented a comprehensive smart city data platform integrating traffic management, public services, environmental monitoring, and citizen feedback systems. Our solution includes predictive analytics for service demand, real-time dashboards for city operations, and automated reporting systems for stakeholders.</p>
+                    <div class="portfolio-content">
+                        <h3>Santokh.co.uk</h3>
+                        <p>Premium marketing services website with conversion-optimized design and integrated lead generation system.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Next.js</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.santokh.co.uk" target="_blank" class="portfolio-link">Visit Site</a>
+                            <a href="calendar.html" class="portfolio-link secondary">Get Similar</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="tech-stack">
-                    <h4>Technology Stack</h4>
-                    <div class="tech-badges">
-                        <span class="tech-badge">Azure Cloud Platform</span>
-                        <span class="tech-badge">IoT Analytics</span>
-                        <span class="tech-badge">Predictive Modeling</span>
-                        <span class="tech-badge">Power BI</span>
-                        <span class="tech-badge">SQL Server</span>
-                        <span class="tech-badge">API Integration</span>
+                <!-- Simmery Nails -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="simmery.png" alt="Simmery Nails">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Beauty Salon</span>
+                                <span class="tag">Booking System</span>
+                                <span class="tag">Social Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Simmery Nails</h3>
+                        <p>Elegant beauty salon website with integrated booking system, service galleries, and social media feeds.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Vue.js</span>
+                            <span class="tech-badge">Booking API</span>
+                            <span class="tech-badge">Stripe</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.simmerynails.com" target="_blank" class="portfolio-link">Visit Site</a>
+                            <a href="calendar.html" class="portfolio-link secondary">Get Similar</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="results">
-                    <h4>Streamlined Government Operations</h4>
-                    <p style="color: #a78bfa; line-height: 1.8; margin-bottom: 2rem; font-size: 1.1rem;">
-                        Birmingham Council had departments running separate systems that didn't talk to each other. Citizens were frustrated repeating the same information across different services, and staff were duplicating work daily.
-                    </p>
-                    <p style="color: #a78bfa; line-height: 1.8; font-size: 1.1rem;">
-                        Our unified platform created a single source of truth. Now staff have complete visibility into citizen interactions, and department heads can make evidence-based decisions about resource allocation.
-                    </p>
-                    
-                    <div class="quote">
-                        <p class="quote-text">"MerlinsGroup's platform consolidated 15 separate systems, saving us £1.2M in licensing costs alone. More importantly, it eliminated duplicate data entry across departments, freeing up 2,400 staff hours monthly for citizen-facing services."</p>
-                        <p class="quote-author">— David Thompson, Chief Technology Officer, Birmingham City Council</p>
+                <!-- Ice Bank Jewellers -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="icebankjewllery.png" alt="Ice Bank Jewellers">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">E-Commerce</span>
+                                <span class="tag">Luxury Brand</span>
+                                <span class="tag">Payment Gateway</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Ice Bank Jewellers</h3>
+                        <p>Luxury jewelry e-commerce platform with 360° product views, secure checkout, and inventory management.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Shopify Plus</span>
+                            <span class="tech-badge">Three.js</span>
+                            <span class="tech-badge">Custom Apps</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.icebankjewellers.com" target="_blank" class="portfolio-link">Visit Site</a>
+                            <a href="calendar.html" class="portfolio-link secondary">Get Similar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prabjot -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="prabjot.png" alt="Prabjot">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Personal Brand</span>
+                                <span class="tag">Professional</span>
+                                <span class="tag">Blog</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Prabjot.co.uk</h3>
+                        <p>Professional personal website with blog integration, portfolio showcase, and contact management system.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Gatsby</span>
+                            <span class="tech-badge">GraphQL</span>
+                            <span class="tech-badge">Netlify</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://www.prabjot.co.uk" target="_blank" class="portfolio-link">Visit Site</a>
+                            <a href="calendar.html" class="portfolio-link secondary">Get Similar</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section class="services-overview" id="services-overview">
-        <div class="section-header">
-            <h2>Our Data Engineering Capabilities</h2>
-            <p>Comprehensive data solutions tailored to your industry and organizational needs</p>
+    <!-- Marketing Section -->
+    
+
+    <!-- Data Engineering Section -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2><span class="category-icon">🗄️</span> Data Engineering & Analytics</h2>
+            <p>Enterprise-grade data solutions leveraging cloud technologies and advanced analytics</p>
         </div>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Data Architecture & Engineering</h3>
-                <p>We design and build scalable data infrastructures that grow with your business, ensuring optimal performance and reliability.</p>
-                <ul class="service-features">
-                    <li>Cloud-native data pipelines</li>
-                    <li>Real-time data processing</li>
-                    <li>Data warehouse optimization</li>
-                    <li>ETL/ELT automation</li>
-                </ul>
-            </div>
+        <div class="scroll-container">
+            <button class="scroll-btn prev" onclick="scrollCategory('data', -400)">‹</button>
+            <button class="scroll-btn next" onclick="scrollCategory('data', 400)">›</button>
+            <div class="scroll-wrapper" id="data-scroll">
+                <!-- Monday.com CRM -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Monday.com CRM">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">CRM Development</span>
+                                <span class="tag">Automation</span>
+                                <span class="tag">API Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Custom Monday.com CRM</h3>
+                        <p>Built comprehensive CRM system with automated workflows, custom dashboards, and seamless integrations for enhanced team productivity.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Monday.com API</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Webhooks</span>
+                            <span class="tech-badge">REST API</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="calendar.html" class="portfolio-link">Get Similar</a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="service-card">
-                <h3>AI & Machine Learning</h3>
-                <p>Advanced analytics and machine learning models that uncover hidden insights and predict future trends.</p>
-                <ul class="service-features">
-                    <li>Predictive analytics</li>
-                    <li>Computer vision solutions</li>
-                    <li>Natural language processing</li>
-                    <li>Automated decision systems</li>
-                </ul>
-            </div>
+                <!-- Employee Monitoring System -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Employee Monitoring">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Computer Vision</span>
+                                <span class="tag">Real-time Analytics</span>
+                                <span class="tag">Azure AI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>AI Productivity Monitoring</h3>
+                        <p>Advanced employee productivity tracking system using computer vision to analyze work patterns and provide real-time insights for Bordo Design.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Azure AI</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">TensorFlow</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="calendar.html" class="portfolio-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="service-card">
-                <h3>Business Intelligence</h3>
-                <p>Interactive dashboards and reporting solutions that transform data into actionable business insights.</p>
-                <ul class="service-features">
-                    <li>Custom dashboard development</li>
-                    <li>Automated reporting</li>
-                    <li>KPI monitoring</li>
-                    <li>Self-service analytics</li>
-                </ul>
-            </div>
+                <!-- Biometric Clock-In System -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Biometric System">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Facial Recognition</span>
+                                <span class="tag">Cloud Storage</span>
+                                <span class="tag">Security</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Biometric Clock-In System</h3>
+                        <p>Secure employee time tracking with facial recognition, photo capture, and cloud-based data storage for accurate attendance management.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Azure Face API</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">React</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="calendar.html" class="portfolio-link">Get Similar</a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="service-card">
-                <h3>Data Security & Governance</h3>
-                <p>Comprehensive data protection strategies ensuring compliance and security across all data operations.</p>
-                <ul class="service-features">
-                    <li>Data encryption & security</li>
-                    <li>Compliance management</li>
-                    <li>Access control systems</li>
-                    <li>Data quality assurance</li>
-                </ul>
+                <!-- Data Analytics Platform -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Analytics Platform">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Big Data</span>
+                                <span class="tag">Real-time Analytics</span>
+                                <span class="tag">Cloud Computing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Enterprise Analytics Platform</h3>
+                        <p>Cloud-based analytics solution processing millions of data points daily, providing actionable insights through interactive dashboards.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Azure Databricks</span>
+                            <span class="tech-badge">Power BI</span>
+                            <span class="tech-badge">SQL</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="calendar.html" class="portfolio-link">Explore</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section><section class="category-section">
+        <div class="category-header">
+            <h2><span class="category-icon">📈</span> Marketing Campaigns</h2>
+            <p>Data-driven marketing strategies that deliver measurable results</p>
+        </div>
+        <div class="scroll-container">
+            <button class="scroll-btn prev" onclick="scrollCategory('marketing', -400)">‹</button>
+            <button class="scroll-btn next" onclick="scrollCategory('marketing', 400)">›</button>
+            <div class="scroll-wrapper" id="marketing-scroll">
+                <!-- Marketing Campaign 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Social Media Campaign">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Social Media</span>
+                                <span class="tag">Brand Awareness</span>
+                                <span class="tag">Influencer Marketing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Luxury Brand Social Campaign</h3>
+                        <p>Multi-platform social media campaign that increased brand engagement by 450% and generated £2M in attributed revenue.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Instagram</span>
+                            <span class="tech-badge">TikTok</span>
+                            <span class="tech-badge">Facebook Ads</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="calendar.html" class="portfolio-link">Case Study</a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="service-card">
-                <h3>Cloud Migration & Optimization</h3>
-                <p>Seamless migration to cloud platforms with ongoing optimization for cost and performance.</p>
-                <ul class="service-features">
-                    <li>Azure & AWS expertise</li>
-                    <li>Cost optimization</li>
-                    <li>Performance tuning</li>
-                    <li>Hybrid cloud solutions</li>
-                </ul>
-            </div>
+                <!-- Marketing Campaign 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="PPC Campaign">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Google Ads</span>
+                                <span class="tag">PPC</span>
+                                <span class="tag">Lead Generation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>B2B Lead Generation</h3>
+                        <p>Targeted PPC campaign generating 500+ qualified leads monthly with 65% conversion rate and 12:1 ROI.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Google Ads</span>
+                            <span class="tech-badge">LinkedIn Ads</span>
+                            <span class="tech-badge">HubSpot</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="calendar.html" class="portfolio-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="service-card">
-                <h3>System Integration</h3>
-                <p>Connect disparate systems and create unified data ecosystems for comprehensive business visibility.</p>
-                <ul class="service-features">
-                    <li>API development & integration</li>
-                    <li>Legacy system modernization</li>
-                    <li>Real-time data synchronization</li>
-                    <li>Cross-platform connectivity</li>
-                </ul>
+                <!-- Marketing Campaign 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Content Marketing">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Content Marketing</span>
+                                <span class="tag">SEO</span>
+                                <span class="tag">Thought Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Content Marketing Success</h3>
+                        <p>Strategic content campaign achieving #1 rankings for 50+ keywords and 300% organic traffic growth.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">SEO</span>
+                            <span class="tech-badge">Content Strategy</span>
+                            <span class="tech-badge">Analytics</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="calendar.html" class="portfolio-link">View Results</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marketing Campaign 4 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Email Marketing">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-tags">
+                                <span class="tag">Email Marketing</span>
+                                <span class="tag">Automation</span>
+                                <span class="tag">Personalization</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>E-commerce Email Automation</h3>
+                        <p>Automated email campaigns driving 35% of total revenue with personalized product recommendations.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-badge">Klaviyo</span>
+                            <span class="tech-badge">AI Personalization</span>
+                            <span class="tech-badge">A/B Testing</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="calendar.html" class="portfolio-link">Explore</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -990,14 +1212,42 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Ready to Transform Your Data Operations?</h2>
-            <p>Join the ranks of industry leaders who trust MerlinsGroup with their most critical data challenges. Let's architect your data-driven future together.</p>
-            <div class="cta-buttons">
-                <a href="calendar.html" class="cta-button">Book Free Consultation</a>
-                <a href="portfolio.html" class="cta-button secondary">View More Work</a>
-            </div>
+            <h2>Ready to Join Our Success Stories?</h2>
+            <p>Let's create something amazing together. Your next project could be featured here!</p>
+            <a href="calendar.html" class="cta-button">Start Your Project</a>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>MerlinsGroup</h3>
+                <p>Transforming businesses with cutting-edge marketing, robust database solutions, and innovative AI technologies. Your success is our mission.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="calendar.html">Book Consultation</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="mailto:contact@merlinsgroup.com">contact@merlinsgroup.com</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MerlinsGroup. All rights reserved. | Elevating businesses to new heights.</p>
+        </div>
+    </footer>
 
     <script>
         // Mobile menu toggle
@@ -1010,10 +1260,18 @@
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('nav');
             const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
             
             if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
         });
 
         // Navbar scroll effect
@@ -1027,6 +1285,28 @@
                 nav.style.boxShadow = 'none';
             }
         });
+
+        // Scroll functions
+        function scrollCategory(category, amount) {
+            const scrollWrapper = document.getElementById(category + '-scroll');
+            scrollWrapper.scrollBy({
+                left: amount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Hide scroll buttons on mobile
+        function checkScrollButtons() {
+            const scrollButtons = document.querySelectorAll('.scroll-btn');
+            if (window.innerWidth <= 768) {
+                scrollButtons.forEach(btn => btn.style.display = 'none');
+            } else {
+                scrollButtons.forEach(btn => btn.style.display = 'flex');
+            }
+        }
+
+        window.addEventListener('resize', checkScrollButtons);
+        checkScrollButtons();
 
         // Animate elements on scroll
         const observerOptions = {
@@ -1043,7 +1323,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.case-study-card, .service-card, .stat-box').forEach(el => {
+        document.querySelectorAll('.portfolio-card, .stat-box').forEach(el => {
             el.style.opacity = '0';
             observer.observe(el);
         });
@@ -1064,24 +1344,19 @@
         `;
         document.head.appendChild(style);
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Touch-friendly scroll indicators
+        document.querySelectorAll('.scroll-wrapper').forEach(wrapper => {
+            wrapper.addEventListener('scroll', function() {
+                const scrollLeft = this.scrollLeft;
+                const scrollWidth = this.scrollWidth;
+                const clientWidth = this.clientWidth;
+                
+                // Add visual feedback for scroll position
+                if (scrollLeft > 50) {
+                    this.style.boxShadow = 'inset 10px 0 10px -10px rgba(147, 51, 234, 0.3)';
+                } else {
+                    this.style.boxShadow = 'none';
                 }
-            });
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
             });
         });
     </script>
