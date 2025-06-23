@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Now - MerlinsData</title>
+    <title>Contact Us - Merlin's Data</title>
     <style>
         * {
             margin: 0;
@@ -12,95 +12,181 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #000;
+            color: #2c3e50;
+            background-color: #ffffff;
+            overflow-x: hidden;
         }
 
-        /* Navigation */
-        nav {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
-            height: 70px;
+            border-bottom: 1px solid #e5e7eb;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%;
+            padding: 20px 0;
+            height: 80px;
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
             text-decoration: none;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #667eea;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
             list-style: none;
+            gap: 40px;
+            align-items: center;
         }
 
         .nav-links a {
-            color: #fff;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
+            color: #2c3e50;
+            font-weight: 400;
+            font-size: 16px;
+            transition: color 0.2s ease;
             position: relative;
         }
 
-        .nav-links a:after {
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links > li > a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -2px;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(45deg, #9333ea, #c084fc);
+            background: #667eea;
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: #c084fc;
-        }
-
-        .nav-links a:hover:after {
+        .nav-links > li > a:hover::after {
             width: 100%;
         }
 
-        /* Mobile Navigation */
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            padding: 8px 0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 24px;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 15px;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f8f9fa;
+            color: #667eea;
+            padding-left: 28px;
+        }
+
+        .dropdown-menu a::after {
+            display: none !important;
+        }
+
+        .cta-nav {
+            background: #667eea;
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-nav:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+        }
+
+        .cta-nav::after {
+            display: none !important;
+        }
+
         .mobile-menu-toggle {
             display: none;
             background: none;
             border: none;
-            color: #fff;
-            font-size: 1.5rem;
+            color: #2c3e50;
+            font-size: 24px;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 8px;
         }
 
         /* Page Header */
         .page-header {
-            background: linear-gradient(135deg, #000 0%, #1a0033 100%);
+            background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
             color: white;
-            padding: 8rem 2rem 4rem;
+            padding: 140px 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -116,8 +202,7 @@
             background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
-            opacity: 0.2;
-            filter: grayscale(50%);
+            opacity: 0.1;
         }
 
         .page-header-content {
@@ -128,32 +213,23 @@
         }
 
         .page-header h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #9333ea, #c084fc, #e9d5ff);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite;
-            text-transform: uppercase;
-        }
-
-        @keyframes shimmer {
-            to { background-position: 200% center; }
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
         }
 
         .page-header p {
-            font-size: 1.4rem;
-            color: #e9d5ff;
-            margin-bottom: 2rem;
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 32px;
         }
 
         .header-stats {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
+            gap: 48px;
+            margin-top: 32px;
         }
 
         .stat-item {
@@ -161,265 +237,368 @@
         }
 
         .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #c084fc;
+            font-size: 32px;
+            font-weight: 700;
             display: block;
         }
 
         .stat-label {
-            color: #e9d5ff;
-            font-size: 0.9rem;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            opacity: 0.9;
         }
 
         /* Main Content */
         .main-content {
-            padding: 6rem 2rem;
-            background: #0a0a0a;
+            padding: 80px 0;
+            background: #f8f9fa;
         }
 
         .content-container {
-            max-width: 1400px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 400px;
-            gap: 4rem;
+            gap: 48px;
         }
 
         /* Calendar Section */
         .calendar-section {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(147, 51, 234, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            overflow: hidden;
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .calendar-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            text-transform: uppercase;
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: #2c3e50;
+            font-weight: 600;
         }
 
         .calendar-section p {
-            color: #a78bfa;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            color: #666;
+            margin-bottom: 32px;
+            font-size: 18px;
+            line-height: 1.6;
         }
 
         .calendly-container {
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            background: #fff;
+            background: #f8f9fa;
             min-height: 700px;
         }
 
         /* Contact Section */
         .contact-section {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(147, 51, 234, 0.2);
-            border-radius: 20px;
-            padding: 2.5rem;
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             height: fit-content;
             position: sticky;
             top: 100px;
         }
 
         .contact-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            text-transform: uppercase;
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: #2c3e50;
+            font-weight: 600;
         }
 
         .contact-section p {
-            color: #a78bfa;
-            margin-bottom: 2rem;
-            line-height: 1.8;
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.6;
         }
 
         .contact-methods {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 20px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(147, 51, 234, 0.1);
-            border-radius: 15px;
-            border: 1px solid rgba(147, 51, 234, 0.3);
+            gap: 16px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
             transition: all 0.3s;
+            border: 1px solid transparent;
         }
 
         .contact-item:hover {
-            background: rgba(147, 51, 234, 0.2);
-            border-color: rgba(147, 51, 234, 0.5);
-            transform: translateY(-2px);
+            background: white;
+            border-color: #667eea;
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
         }
 
         .contact-icon {
-            font-size: 1.5rem;
-            color: #c084fc;
-            min-width: 24px;
+            width: 48px;
+            height: 48px;
+            background: #667eea;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            flex-shrink: 0;
         }
 
         .contact-details h3 {
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 4px;
             font-weight: 600;
         }
 
         .contact-details a {
-            color: #e9d5ff;
+            color: #666;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .contact-details a:hover {
-            color: #c084fc;
+            color: #667eea;
+        }
+
+        .contact-details span {
+            color: #666;
         }
 
         .contact-note {
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            color: #fff;
-            padding: 1.5rem;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 24px;
         }
 
         .contact-note h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .contact-note p {
-            color: #f3e8ff;
+            color: white;
             margin: 0;
-            font-size: 0.9rem;
+            opacity: 0.95;
         }
 
         /* Features Section */
         .features-section {
-            padding: 6rem 2rem;
-            background: #000;
-        }
-
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
+            padding: 80px 0;
+            background: white;
         }
 
         .features-header {
-            margin-bottom: 4rem;
+            text-align: center;
+            margin-bottom: 64px;
         }
 
         .features-header h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            text-transform: uppercase;
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: #2c3e50;
+            font-weight: 600;
         }
 
         .features-header p {
-            color: #a78bfa;
-            font-size: 1.2rem;
+            color: #666;
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 32px;
         }
 
         .feature-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(147, 51, 234, 0.2);
-            padding: 2rem;
-            border-radius: 15px;
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
             transition: all 0.3s;
+            text-align: center;
+            border: 1px solid transparent;
         }
 
         .feature-item:hover {
-            background: rgba(147, 51, 234, 0.1);
-            border-color: rgba(147, 51, 234, 0.5);
-            transform: translateY(-5px);
+            background: white;
+            border-color: #667eea;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         }
 
         .feature-item .icon {
-            font-size: 3rem;
-            color: #c084fc;
-            margin-bottom: 1rem;
+            width: 64px;
+            height: 64px;
+            background: #667eea;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            margin: 0 auto 24px;
         }
 
         .feature-item h3 {
-            color: #fff;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-size: 22px;
+            margin-bottom: 16px;
             font-weight: 600;
         }
 
         .feature-item p {
-            color: #a78bfa;
+            color: #666;
             line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .faq-header h2 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .faq-header p {
+            color: #666;
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 24px 32px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            font-weight: 600;
+            margin: 0;
+            flex: 1;
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            transition: transform 0.3s ease;
+            font-size: 20px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 32px 24px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .faq-answer-content ul {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+
+        .faq-answer-content li {
+            margin-bottom: 8px;
         }
 
         /* Footer */
         footer {
-            background: #000;
+            background: #2c3e50;
             color: white;
-            padding: 4rem 2rem 2rem;
-            border-top: 1px solid rgba(147, 51, 234, 0.2);
+            padding: 60px 0 30px;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
         }
 
         .footer-brand h3 {
-            font-size: 2rem;
-            background: linear-gradient(45deg, #9333ea, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
+            font-size: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
         }
 
         .footer-brand p {
-            color: #a78bfa;
-            line-height: 1.8;
+            color: #999;
+            line-height: 1.6;
+            margin-bottom: 24px;
         }
 
         .footer-links h4 {
-            color: #c084fc;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            font-size: 16px;
         }
 
         .footer-links ul {
@@ -427,201 +606,232 @@
         }
 
         .footer-links a {
-            color: #a78bfa;
+            color: #999;
             text-decoration: none;
-            padding: 0.5rem 0;
+            padding: 6px 0;
             display: block;
-            transition: color 0.3s;
+            transition: color 0.2s ease;
+            font-size: 14px;
         }
 
         .footer-links a:hover {
-            color: #e9d5ff;
+            color: #667eea;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(147, 51, 234, 0.1);
-            color: #7c3aed;
+            padding-top: 32px;
+            border-top: 1px solid #495057;
+            color: #999;
+            font-size: 14px;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 1024px) {
-            .content-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .contact-section {
-                position: static;
-            }
-        }
-
+        /* Mobile Navigation */
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
             .mobile-menu-toggle {
                 display: block;
             }
 
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 80px;
                 left: 0;
                 right: 0;
-                background: rgba(0, 0, 0, 0.98);
+                background: white;
                 flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
+                padding: 24px;
+                gap: 0;
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
-                border-bottom: 1px solid rgba(147, 51, 234, 0.2);
-                backdrop-filter: blur(10px);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid #e5e7eb;
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
             }
 
             .nav-links.active {
                 transform: translateX(0);
             }
 
-            .nav-links a {
-                font-size: 1.1rem;
-                padding: 0.5rem 0;
+            .nav-links > li {
+                width: 100%;
+            }
+
+            .nav-links > li > a {
+                display: block;
+                padding: 16px 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            /* Mobile Dropdown */
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown-toggle {
+                width: 100%;
+                justify-content: space-between;
+                padding: 16px 0;
+            }
+
+            .dropdown.active .dropdown-toggle::after {
+                transform: rotate(180deg);
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 0;
+                visibility: hidden;
+                max-height: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: none;
+                background: #f8f9fa;
+                margin: 0;
+                padding: 0;
+                transform: none;
+            }
+
+            .dropdown.active .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                max-height: 500px;
+                padding: 8px 0;
+            }
+
+            .dropdown-menu a {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .cta-nav {
+                margin-top: 16px;
                 text-align: center;
+                display: block;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .content-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
             }
 
-            .logo {
-                font-size: 1.5rem;
+            .contact-section {
+                position: static;
             }
 
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
             .page-header {
-                padding: 6rem 1rem 3rem;
+                padding: 100px 20px 60px;
             }
 
             .page-header h1 {
-                font-size: 2.5rem;
-                line-height: 1.2;
-            }
-
-            .page-header p {
-                font-size: 1.1rem;
+                font-size: 36px;
             }
 
             .header-stats {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 24px;
             }
 
             .main-content {
-                padding: 4rem 1rem;
-            }
-
-            .content-container {
-                gap: 2rem;
+                padding: 60px 0;
             }
 
             .calendar-section,
             .contact-section {
-                padding: 1.5rem;
+                padding: 32px;
             }
 
             .calendar-section h2 {
-                font-size: 2rem;
+                font-size: 28px;
             }
 
             .contact-section h2 {
-                font-size: 1.5rem;
-            }
-
-            .calendly-container {
-                min-height: 600px;
-            }
-
-            .features-section {
-                padding: 4rem 1rem;
-            }
-
-            .features-header h2 {
-                font-size: 2rem;
+                font-size: 24px;
             }
 
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 24px;
+            }
+
+            .faq-question {
+                padding: 20px 24px;
+            }
+
+            .faq-question h3 {
+                font-size: 16px;
+            }
+
+            .faq-answer-content {
+                padding: 0 24px 20px;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 32px;
                 text-align: center;
-            }
-
-            footer {
-                padding: 3rem 1rem 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .calendar-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .contact-section h2 {
-                font-size: 1.3rem;
-            }
-
-            .calendly-container {
-                min-height: 500px;
-            }
-
-            .contact-item {
-                padding: 1rem;
-            }
-
-            .feature-item {
-                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">MerlinsData</a>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="packages.html">Packages</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="calendar.html">Book Now</a></li>
-            </ul>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Merlin's <span>Data</span></a>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event)">Services</a>
+                        <div class="dropdown-menu">
+                            <a href="services.html#marketing">Digital Marketing</a>
+                            <a href="services.html#webdev">Web Development</a>
+                            <a href="services.html#database">Data Analytics</a>
+                            <a href="services.html#ai">AI Solutions</a>
+                        </div>
+                    </li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="calender.html" class="cta-nav">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="page-header-content">
-            <h1>Book Your Consultation</h1>
-            <p>Ready to transform your business? Schedule a free strategy session with our experts and discover how we can accelerate your growth.</p>
-            <div class="header-stats">
-                <div class="stat-item">
-                    <span class="stat-number">15 min</span>
-                    <span class="stat-label">Free Consultation</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Available Support</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">Same Day</span>
-                    <span class="stat-label">Response Time</span>
+        <div class="container">
+            <div class="page-header-content">
+                <h1>Book Your Consultation</h1>
+                <p>Ready to transform your business? Schedule a free strategy session with our experts and discover how we can accelerate your growth.</p>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15 min</span>
+                        <span class="stat-label">Free Consultation</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Available Support</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Same Day</span>
+                        <span class="stat-label">Response Time</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -629,65 +839,67 @@
 
     <!-- Main Content -->
     <section class="main-content">
-        <div class="content-container">
-            <!-- Calendar Section -->
-            <div class="calendar-section">
-                <h2>Schedule Your Meeting</h2>
-                <p>Choose a time that works best for you. Our team of experts is ready to discuss your project requirements and provide tailored solutions for your business needs.</p>
-                
-                <div class="calendly-container">
-                    <!-- Calendly inline widget begin -->
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/merlinsdata" style="min-width:320px;height:700px;"></div>
-                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                    <!-- Calendly inline widget end -->
-                </div>
-            </div>
-
-            <!-- Contact Section -->
-            <div class="contact-section">
-                <h2>Get in Touch</h2>
-                <p>Prefer to contact us directly? Reach out through any of the methods below and we'll get back to you promptly.</p>
-                
-                <div class="contact-methods">
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <h3>Phone Numbers</h3>
-                            <a href="tel:+447380139066">+44 7380 139066</a><br>
-                            <a href="tel:+447885399987">+44 7885 399987</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-details">
-                            <h3>Email Address</h3>
-                            <a href="mailto:team@merlinsgroup.co.uk">team@merlinsgroup.co.uk</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">⏰</div>
-                        <div class="contact-details">
-                            <h3>Business Hours</h3>
-                            <span style="color: #e9d5ff;">Mon - Fri: 9:00 AM - 6:00 PM GMT</span><br>
-                            <span style="color: #e9d5ff;">Weekend: By Appointment</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">🌍</div>
-                        <div class="contact-details">
-                            <h3>Global Reach</h3>
-                            <span style="color: #e9d5ff;">Serving clients worldwide</span><br>
-                            <span style="color: #e9d5ff;">Remote & on-site support</span>
-                        </div>
+        <div class="container">
+            <div class="content-container">
+                <!-- Calendar Section -->
+                <div class="calendar-section">
+                    <h2>Schedule Your Meeting</h2>
+                    <p>Choose a time that works best for you. Our team of experts is ready to discuss your project requirements and provide tailored solutions for your business needs.</p>
+                    
+                    <div class="calendly-container">
+                        <!-- Calendly inline widget begin -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/merlinsdata" style="min-width:320px;height:700px;"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        <!-- Calendly inline widget end -->
                     </div>
                 </div>
 
-                <div class="contact-note">
-                    <h3>Quick Response Guarantee</h3>
-                    <p>We respond to all inquiries within 2 hours during business hours</p>
+                <!-- Contact Section -->
+                <div class="contact-section">
+                    <h2>Get in Touch</h2>
+                    <p>Prefer to contact us directly? Reach out through any of the methods below and we'll get back to you promptly.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h3>Phone Numbers</h3>
+                                <a href="tel:+447380139066">+44 7380 139066</a><br>
+                                <a href="tel:+447885399987">+44 7885 399987</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h3>Email Address</h3>
+                                <a href="mailto:team@merlinsgroup.co.uk">team@merlinsgroup.co.uk</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div class="contact-details">
+                                <h3>Business Hours</h3>
+                                <span>Mon - Fri: 9:00 AM - 6:00 PM GMT</span><br>
+                                <span>Weekend: By Appointment</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🌍</div>
+                            <div class="contact-details">
+                                <h3>Global Reach</h3>
+                                <span>Serving clients worldwide</span><br>
+                                <span>Remote & on-site support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-note">
+                        <h3>Quick Response Guarantee</h3>
+                        <p>We respond to all inquiries within 2 hours during business hours</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -695,10 +907,10 @@
 
     <!-- Features Section -->
     <section class="features-section">
-        <div class="features-container">
+        <div class="container">
             <div class="features-header">
                 <h2>What to Expect</h2>
-                <p>Here's what happens when you book a consultation with MerlinsData</p>
+                <p>Here's what happens when you book a consultation with Merlin's Data</p>
             </div>
             
             <div class="features-grid">
@@ -723,33 +935,224 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>MerlinsData</h3>
-                <p>Transforming businesses with cutting-edge marketing, robust database solutions, and innovative AI technologies. Your success is our mission.</p>
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services, process, and how we can help your business grow</p>
             </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="packages.html">Packages</a></li>
-                    <li><a href="calendar.html">Book Consultation</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Get in Touch</h4>
-                <ul>
-                    <li><a href="mailto:team@merlinsgroup.co.uk">team@merlinsgroup.co.uk</a></li>
-                    <li><a href="tel:+447380139066">+44 7380 139066</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What services does Merlin's Data offer?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We offer comprehensive digital transformation services including:
+                            <ul>
+                                <li>Digital Marketing - SEO, PPC, social media, content marketing, and email campaigns</li>
+                                <li>Web Development - Custom websites, e-commerce solutions, and web applications</li>
+                                <li>Data Analytics - Business intelligence, dashboards, and predictive analytics</li>
+                                <li>AI & Automation - Custom AI solutions, chatbots, and process automation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How much do your services cost?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Our pricing varies based on project scope and requirements. We offer flexible packages starting from £997/month for our Startup Accelerator package to custom enterprise solutions. We provide transparent pricing with no hidden fees. Schedule a free consultation to get a customized quote for your specific needs.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How long does a typical project take?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Project timelines depend on complexity and scope:
+                            <ul>
+                                <li>Basic websites: 2-4 weeks</li>
+                                <li>E-commerce solutions: 4-8 weeks</li>
+                                <li>Marketing campaigns: Ongoing with results visible in 30-90 days</li>
+                                <li>Data analytics dashboards: 2-6 weeks</li>
+                                <li>AI implementations: 4-12 weeks</li>
+                            </ul>
+                            We'll provide a detailed timeline during your consultation.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Do you work with businesses of all sizes?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes! We specialize in working with small and medium-sized businesses (SMBs) but also serve startups and enterprise clients. Our solutions are scalable and can be tailored to businesses at any stage of growth. We've successfully worked with over 250+ businesses across various industries.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What makes Merlin's Data different from other agencies?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We stand out through:
+                            <ul>
+                                <li>Data-driven approach - Every decision backed by analytics and insights</li>
+                                <li>Full-service solutions - Marketing, development, data, and AI under one roof</li>
+                                <li>Proven results - Average 200% ROI increase for our clients</li>
+                                <li>Dedicated support - 24/7 availability and same-day response times</li>
+                                <li>Transparent pricing - No hidden fees or surprise charges</li>
+                                <li>Custom solutions - Tailored strategies for your specific business needs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can you work with our existing systems and tools?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolutely! We're experienced in integrating with most popular business tools and platforms including Salesforce, HubSpot, Shopify, WordPress, Google Analytics, and many more. We'll assess your current tech stack and ensure seamless integration with any new solutions we implement.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Do you provide ongoing support after project completion?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes, we offer comprehensive post-launch support including:
+                            <ul>
+                                <li>Monthly maintenance packages</li>
+                                <li>24/7 technical support</li>
+                                <li>Regular performance monitoring</li>
+                                <li>Security updates and patches</li>
+                                <li>Content updates and changes</li>
+                                <li>Ongoing optimization recommendations</li>
+                            </ul>
+                            Our goal is to ensure your continued success long after project launch.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How do I get started?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Getting started is easy:
+                            <ul>
+                                <li>Book a free 15-minute consultation using our calendar above</li>
+                                <li>Or contact us directly via phone or email</li>
+                                <li>We'll discuss your needs and goals</li>
+                                <li>Receive a customized proposal within 24 hours</li>
+                                <li>Once approved, we'll kick off your project immediately</li>
+                            </ul>
+                            No commitments required for the initial consultation!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What industries do you specialize in?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We have experience across various industries including:
+                            <ul>
+                                <li>E-commerce and Retail</li>
+                                <li>Real Estate</li>
+                                <li>Healthcare and Wellness</li>
+                                <li>Professional Services</li>
+                                <li>Manufacturing</li>
+                                <li>Education and Training</li>
+                                <li>Technology and SaaS</li>
+                            </ul>
+                            Our data-driven approach works effectively across all industries.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can you guarantee results?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            While we can't guarantee specific results (no honest agency can), we do guarantee:
+                            <ul>
+                                <li>Data-driven strategies based on proven methodologies</li>
+                                <li>Complete transparency in our process and reporting</li>
+                                <li>Regular optimization based on performance data</li>
+                                <li>Our commitment to your success</li>
+                            </ul>
+                            Our track record shows an average 200% ROI increase for clients who follow our recommendations. We'll provide realistic projections based on your industry and market conditions.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 MerlinsData. All rights reserved. | Elevating businesses to new heights.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Merlin's Data</h3>
+                    <p>Empowering small and medium businesses with enterprise-grade solutions. Your success is our mission.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="services.html#marketing">Digital Marketing</a></li>
+                        <li><a href="services.html#webdev">Web Development</a></li>
+                        <li><a href="services.html#database">Data Analytics</a></li>
+                        <li><a href="services.html#ai">AI Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Get Started</h4>
+                    <ul>
+                        <li><a href="calender.html">Contact Us</a></li>
+                        <li><a href="packages.html">View Packages</a></li>
+                        <li><a href="https://calendly.com/merlinsdata">Book Consultation</a></li>
+                        <li><a href="calender.html#faq">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Merlin's Data. All rights reserved. | Transforming Small Businesses Into Market Leaders</p>
+            </div>
         </div>
     </footer>
 
@@ -760,52 +1163,103 @@
             navLinks.classList.toggle('active');
         }
 
+        // Dropdown toggle function
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdown = event.target.closest('.dropdown');
+            
+            // For mobile devices
+            if (window.innerWidth <= 768) {
+                dropdown.classList.toggle('active');
+            }
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const allFAQItems = document.querySelectorAll('.faq-item');
+            
+            // Close all other FAQ items
+            allFAQItems.forEach(item => {
+                if (item !== faqItem && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ item
+            faqItem.classList.toggle('active');
+        }
+
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('nav');
             const navLinks = document.getElementById('navLinks');
+            const dropdowns = document.querySelectorAll('.dropdown');
             
+            // Close mobile menu if clicking outside
             if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
+            
+            // Close dropdowns if clicking outside
+            if (!event.target.closest('.dropdown')) {
+                dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+            }
         });
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        // Close mobile menu when clicking a link (except dropdown toggle)
+        document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('active');
             });
         });
 
-        // Navbar scroll effect
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Header scroll effect
         window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
+            const header = document.querySelector('header');
             if (window.scrollY > 50) {
-                nav.style.background = 'rgba(0, 0, 0, 0.98)';
-                nav.style.boxShadow = '0 5px 20px rgba(147, 51, 234, 0.3)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             } else {
-                nav.style.background = 'rgba(0, 0, 0, 0.95)';
-                nav.style.boxShadow = 'none';
+                header.style.boxShadow = 'none';
             }
         });
 
         // Animate elements on scroll
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1s ease-out';
                     entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.contact-item, .feature-item').forEach(el => {
+        // Observe elements for animation
+        document.querySelectorAll('.contact-item, .feature-item, .faq-item').forEach(el => {
             el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
     </script>
