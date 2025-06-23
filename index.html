@@ -237,6 +237,111 @@
             display: block;
         }
 
+        /* Data Impact Section */
+        .data-impact-section {
+            padding: 100px 0;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .impact-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .impact-header h2 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .impact-header p {
+            font-size: 24px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+            max-width: 1000px;
+            margin: 0 auto 48px;
+        }
+
+        .impact-card {
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .impact-card.negative {
+            background: #fee;
+            border: 2px solid #fcc;
+        }
+
+        .impact-card.positive {
+            background: #f0f4ff;
+            border: 2px solid #667eea;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .impact-card h3 {
+            font-size: 28px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .impact-card.negative h3 {
+            color: #dc2626;
+        }
+
+        .impact-card.positive h3 {
+            color: #667eea;
+        }
+
+        .impact-card ul {
+            list-style: none;
+        }
+
+        .impact-card li {
+            font-size: 18px;
+            padding: 12px 0;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .impact-card.negative li {
+            color: #7f1d1d;
+        }
+
+        .impact-card.positive li {
+            color: #2c3e50;
+        }
+
+        .impact-cta {
+            text-align: center;
+            margin-top: 64px;
+        }
+
+        .btn-primary.large {
+            font-size: 20px;
+            padding: 20px 40px;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary.large:hover {
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+
         .hero-visual {
             position: relative;
             height: 500px;
@@ -672,7 +777,71 @@
             font-size: 14px;
         }
 
-        /* Responsive Design */
+        /* Floating Booking Widget */
+        .booking-widget {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+            z-index: 1001;
+            text-align: center;
+            min-width: 220px;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 40px rgba(102, 126, 234, 0.6);
+            }
+            100% {
+                box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+            }
+        }
+
+        .booking-widget:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
+            animation: none;
+        }
+
+        .booking-widget h4 {
+            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .booking-widget p {
+            margin-bottom: 16px;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .schedule-btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #667eea;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
         @media (max-width: 1024px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -790,7 +959,7 @@
                     <li><a href="#solutions">Solutions</a></li>
                     <li><a href="#case-studies">Case Studies</a></li>
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="calendar.html" class="cta-nav">Get Started</a></li>
+                    <li><a href="contact.html" class="cta-nav">Get Started</a></li>
                 </ul>
             </nav>
         </div>
@@ -805,11 +974,11 @@
                     <div class="slide-content">
                         <div class="hero-grid">
                             <div class="hero-text">
-                                <h1>Transform Your <span>Small Business</span> with Enterprise-Grade Solutions</h1>
-                                <p>Get the same powerful data analytics, marketing automation, and AI tools that Fortune 500 companies use - tailored and priced for growing businesses like yours.</p>
+                                <h1>Your Competition Uses <span>Data</span>. Do You?</h1>
+                                <p>While you're guessing what works, data-driven businesses are stealing your customers. We level the playing field with enterprise-grade analytics and marketing systems designed for SMBs.</p>
                                 <div class="hero-buttons">
-                                    <a href="calendar.html" class="btn-primary">Start Your Transformation</a>
-                                    <a href="#what-we-do" class="btn-secondary">See How It Works →</a>
+                                    <a href="contact.html" class="btn-primary">Start Using Data Today</a>
+                                    <a href="#what-we-do" class="btn-secondary">See The Difference →</a>
                                 </div>
                             </div>
                             <div class="hero-visual">
@@ -826,10 +995,10 @@
                     <div class="slide-content">
                         <div class="hero-grid">
                             <div class="hero-text">
-                                <h1>Marketing That <span>Delivers Results</span>, Not Empty Promises</h1>
-                                <p>Stop wasting money on marketing that doesn't work. Our data-driven approach has helped SMBs increase revenue by an average of 200% in just 6 months.</p>
+                                <h1>Stop Wasting Money on <span>Guesswork Marketing</span></h1>
+                                <p>Most SMBs lose 40% of their marketing budget on campaigns that don't work. Our data-driven systems ensure every dollar drives real results - with an average 200% ROI increase in 6 months.</p>
                                 <div class="hero-buttons">
-                                    <a href="calendar.html" class="btn-primary">Get Your Free Analysis</a>
+                                    <a href="contact.html" class="btn-primary">Get Your Free Analysis</a>
                                     <a href="#case-studies" class="btn-secondary">View Success Stories →</a>
                                 </div>
                             </div>
@@ -847,10 +1016,10 @@
                     <div class="slide-content">
                         <div class="hero-grid">
                             <div class="hero-text">
-                                <h1>Your <span>Technology Partner</span> for Sustainable Growth</h1>
-                                <p>From stunning websites to AI-powered automation, we build the digital infrastructure that helps small businesses compete with industry giants.</p>
+                                <h1>Manual Processes Are <span>Killing Your Growth</span></h1>
+                                <p>Companies with automated systems grow 3x faster. We build the marketing automation, data pipelines, and AI tools that turn your small team into a revenue-generating machine.</p>
                                 <div class="hero-buttons">
-                                    <a href="calendar.html" class="btn-primary">Schedule Consultation</a>
+                                    <a href="contact.html" class="btn-primary">Automate Your Growth</a>
                                     <a href="#solutions" class="btn-secondary">Explore Solutions →</a>
                                 </div>
                             </div>
@@ -907,6 +1076,41 @@
                     <source src="Brand_Launch_Video_Request.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Impact Section -->
+    <section class="data-impact-section">
+        <div class="container">
+            <div class="impact-header">
+                <h2>The Data Revolution Is Here. Are You Part of It?</h2>
+                <p>Companies using data-driven marketing see 5-8x ROI. Those who don't are becoming irrelevant.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card negative">
+                    <h3>Without Data & Systems</h3>
+                    <ul>
+                        <li>❌ 40% of marketing budget wasted</li>
+                        <li>❌ Losing customers to competitors</li>
+                        <li>❌ Manual tasks eating 60% of time</li>
+                        <li>❌ Decisions based on guesswork</li>
+                        <li>❌ Growth plateaued or declining</li>
+                    </ul>
+                </div>
+                <div class="impact-card positive">
+                    <h3>With Our Data Solutions</h3>
+                    <ul>
+                        <li>✅ Every dollar tracked and optimized</li>
+                        <li>✅ Predictive insights on customers</li>
+                        <li>✅ 80% tasks automated</li>
+                        <li>✅ Real-time data dashboards</li>
+                        <li>✅ 200% average growth in 6 months</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="impact-cta">
+                <a href="contact.html" class="btn-primary large">Don't Get Left Behind - Start Now</a>
             </div>
         </div>
     </section>
@@ -1087,7 +1291,7 @@
                 <h2>Ready to Transform Your Business?</h2>
                 <p>Join hundreds of SMBs that have accelerated their growth with Merlin's Data</p>
                 <div class="cta-buttons">
-                    <a href="calendar.html" class="btn-white">Schedule Free Consultation</a>
+                    <a href="contact.html" class="btn-white">Schedule Free Consultation</a>
                     <a href="packages.html" class="btn-outline-white">View Pricing</a>
                 </div>
             </div>
@@ -1123,9 +1327,9 @@
                 <div class="footer-links">
                     <h4>Get Started</h4>
                     <ul>
-                        <li><a href="calendar.html">Book Consultation</a></li>
-                        <li><a href="packages.html">View Packages</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="packages.html">View Packages</a></li>
+                        <li><a href="contact.html">Book Consultation</a></li>
                         <li><a href="faq.html">FAQs</a></li>
                     </ul>
                 </div>
@@ -1135,6 +1339,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Booking Widget -->
+    <div class="booking-widget">
+        <h4>📅 Ready to Grow?</h4>
+        <p>Get your free consultation</p>
+        <a href="https://calendly.com/merlinsdata" target="_blank" class="schedule-btn">Book Now</a>
+    </div>
 
     <script>
         // Slideshow functionality
